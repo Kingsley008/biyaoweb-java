@@ -100,20 +100,13 @@
 
 <div class="m-modal" style="display: none"></div>
 
-<!--
- 弹窗模块
-    <div class="m-modal-wrap">
-        <p>确定要在购物车中删除该商品吗吗？</p>
-        <button>确定</button>
-        <button>取消</button>
-    </div>
--->
 
 
 </body>
 
 <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 <script type="text/javascript" src="js/modal.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
 <script type="text/javascript" src="js/shoppingcart.js"></script>
 
 </html>

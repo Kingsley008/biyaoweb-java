@@ -10,7 +10,7 @@
 <!-- 导航 -->
 <#include "./include/search.ftl">
     <div class="m-success f-center">
-        <h3 style="font-size: 24px">恭喜你注册成功，画面将自动跳转至登录页。。。</h3>
+        <h3 style="font-size: 24px">恭喜你操作成功，已经成功下单</h3>
     </div>
 <!-- footer-->
 <#include "./include/footer.ftl">

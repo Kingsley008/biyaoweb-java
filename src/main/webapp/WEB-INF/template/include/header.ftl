@@ -14,9 +14,9 @@
                 <div class="user-center-drop">
                     <b class="drop-icon"></b>
                     <ul>
-                        <li><a href="" target="_blank">我的订单</a></li>
-                        <li><a href="" target="_blank">个人中心</a></li>
-                        <li><a href="">退出登录</a></li>
+                        <li><a href="/biyaoweb/settlement" target="_blank" class="myOrder">我的订单</a></li>
+                        <li><a href="/biyaoweb/self" target="_blank">个人中心</a></li>
+                        <li><a href="/biyaoweb/logout" class="logout">退出登录</a></li>
                     </ul>
                 </div>
             </li>
@@ -33,7 +33,25 @@
                 </div>
             </li>
             <li class="header-user-item user-message"><a href=""><#if !user.trueName >游客， 你好<#else >${user.trueName},你好</#if><span class="message-num"></span></a></li>
-            <li class="header-user-item user-shopCar"><a href="">购物车<span class="shopCar-num">0</span></a></li>
+            <li class="header-user-item user-shopCar"><a href="/biyaoweb/shoppingCart">购物车<span class="shopCar-num"></span></a></li>
         </ul>
     </div>
 </div>
+<script>
+    var order = document.querySelector('.myOrder');
+    order.addEventListener('click',function (e) {
+        e.preventDefault();
+        var cookies = util.getCookie();
+        if(cookies.userId == null) {
+            // 登入弹窗
+            location.href = "/biyaoweb/login";
+        } else {
+            location.href = "/biyaoweb/settlement";
+        }
+    })
+    var logout = document.querySelector('.logout');
+    logout.addEventListener('click', function (e) {
+        e.preventDefault();
+        location.href = "/biyaoweb/logout";
+    })
+</script>

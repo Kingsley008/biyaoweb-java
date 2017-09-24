@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.net.CookiePolicy;
 
 /**
  * Created by ASUS on 2017/9/19.
@@ -60,12 +61,12 @@ public class UserController {
         } else {
             String phoneNumber = request.getParameter("phoneNumber");
             String password = request.getParameter("password");
-            System.out.println(password);
             boolean ret = userService.checkUser(phoneNumber,password);
             if (ret) {
                 //将用户加入到session中
                 user = userService.getUser();
                 session.setAttribute("user", user);
+
                 map.addAttribute("result", 1);
                 map.addAttribute("user",user);
             } else {

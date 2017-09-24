@@ -9,7 +9,19 @@
 </head>
 <body>
 <!-- 导航 -->
-
+<div class="t-nav">
+    <div class="t-nav-center f-cb">
+        <div class="nav-logo"><a href="/biyaoweb/index"></a></div>
+        <div class="nav-right">
+            <p class="f-cb">
+                欢迎来到必要，请
+                <span class="login-btn">登入</span>
+                <i>|</i>
+                <span class="register-btn">注册</span>
+            </p>
+        </div>
+    </div>
+</div>
 <div class="t-body f-center">
     <form class="reg-form" method="post" action="">
         <h3>新用户注册</h3>

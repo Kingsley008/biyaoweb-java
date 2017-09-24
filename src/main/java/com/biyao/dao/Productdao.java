@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by ASUS on 2017/9/15.
  */
-public interface Indexdao {
+public interface Productdao {
     /**
      * 得到首页投图信息
      * @return
@@ -58,17 +58,7 @@ public interface Indexdao {
     List<ProductList> showSubcatagoryList(@Param(value = "catagory") String catagory,@Param(value = "subCatagory") String subCatagory);
     /*
     *  id 查找商品详情
-    *     private int id;
-    private String catagory; // 商品分类
-    private String subCatagory;
-    private String sizes;
-    private int newicon;
-    private String colors;
-    private long price;
-    private String icon; //
-    private String imgs; // 全部的展示图片
-    private String text; //详情页html内容
-    * * produceDate INT
+    *
  intro VARCHAR (100)
     * */
     @Results({
@@ -85,6 +75,7 @@ public interface Indexdao {
     })
     @Select("select * from content where id = #{id} ")
     ProductDetail showProductDetail(@Param(value = "id") int id);
+
     /*
     * 得到分类的子分类
     * */

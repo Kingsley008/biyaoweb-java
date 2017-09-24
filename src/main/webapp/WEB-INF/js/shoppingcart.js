@@ -11,6 +11,7 @@
             //判断当前购物车 是否有货物
             jugeCart: function () {
                 var productArr = localStorage.getItem('productCart') && JSON.parse(localStorage.getItem('productCart'));
+                console.log(productArr);
                 if (!productArr || productArr.length < 1) {
                     $('.shopping-cart').hide();
                     $('.no-product').show();
@@ -28,8 +29,10 @@
                 var productArr = this.productArr;
                 var template = '';
                 for (var i = 0; i < productArr.length; i++) {
+
                     var single = '<table class="shopping-table shopping-table-' + i + '">\n' +
-                        '        <tbody>\n' +
+                        '<input class="' + productArr[i].name + '" value="'+ productArr[i].productId+'" hidden>\n'+
+                        '<tbody>\n' +
                         '        <tr>\n' +
                         '            <td width="30" align="left"><input class="single-check" type="checkbox" name="single-check" checked></td>\n' +
                         '            <td>\n' +
@@ -179,6 +182,7 @@
                 return this
             },
             bindSettlement:function () {
+
                 //绑定结算按钮
                 $('.settlement-btn').on('click',function () {
                     // 重新组织 数据结构
@@ -187,7 +191,6 @@
                     // 得到订单列表的数量
                     var $tables = $('.shopping-table');
                     var length = $tables.length + 1;
-                    console.log($tables);
                     $tables.each(function () {
                         var obj = {};
                         obj.imgURL = $(this).find('.shop-img img').attr('src');
@@ -197,17 +200,31 @@
                         obj.price = $(this).find('.single-price').text();
                         obj.number = $(this).find('.total-number').val();
                         obj.count = $(this).find('.product-price-count').text();
+                        obj.productId = $('.' + obj.name).val();
                         productArr.push(obj);
                     });
 
                     sumData.productArr = productArr;
-                    sumData.totalNumber = length;
+                    sumData.totalNumber = length - 1;
                     sumData.totalPrice =  $('.cart-sum-price').text();
                     localStorage.setItem('sumData', JSON.stringify(sumData));
-                    location.href = "/biyaoweb/settlement";
+
+                    var cookies = util.getCookie();
+
+                    if(cookies.userId == null) {
+                        // 登入弹窗
+                        location.href = "/biyaoweb/login";
+                    } else {
+                        location.href = "/biyaoweb/settlement";
+                    }
+
                 });
 
                 return this;
+            },
+            showLogin:function () {
+
+
             }
 
 

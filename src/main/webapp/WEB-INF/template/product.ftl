@@ -883,6 +883,9 @@
             productObj.size  = $('.specs-detail.lowModel-specs-active').text();
             productObj.price = $('.panel-money>i').html();
             productObj.number = $('.panel-number').html();
+            var ids = location.search.substring(1).split('=');
+            productObj[ids[0]] = ids[1]; // productId
+            console.log(productObj);
             // 检查参数是否存在
             for(var v in productObj){
                 var checked = true;
@@ -894,7 +897,6 @@
                      checked = false;
                      return checked;
                 }
-
 
             }
 

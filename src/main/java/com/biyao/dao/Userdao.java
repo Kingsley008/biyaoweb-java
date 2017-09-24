@@ -4,6 +4,7 @@ import com.biyao.pojo.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 /**
  *
@@ -21,4 +22,11 @@ public interface Userdao {
      */
     @Select("select * from user where id = #{id}")
     User findUserById(int id);
+
+    /**
+     * id 更新信息ute
+     */
+    @Update(" update user set phoneNumber = #{phoneNumber}, trueName = #{trueName}, address = #{address} where id = #{id}")
+    int updateUserById(@Param(value = "id") int id,@Param(value = "trueName") String trueName, @Param(value = "address") String address, @Param(value = "phoneNumber") String phoneNumber);
+
 }

@@ -22,7 +22,7 @@
         <div class="banner-slider">
             <ul class="sliders">
                 <#list sliderList as x>
-                <li><a href="/biyao/show?productName=${x.productName}"><img src="${x.imgURL}" alt="banner" width="1080"></a></li>
+                <li><a href="/biyaoweb/show?productName = ${x.productName}"><img src="${x.imgURL}" alt="banner" width="1080"></a></li>
                 </#list>
             </ul>
             <span class="prev"></span>
@@ -37,68 +37,41 @@
             </ul>
             <div class="catalog">
                 <ul>
-                    <li class="nav-main"><p><a href="showCategory.html">男装</a> <span>/</span><a href="">女装</a></p>
+                    <li class="nav-main"><p><a href="/biyaoweb/category?category=男装">男装</a> <span>/</span><a href="">定制</a></p>
                         <ul class="nav-sub-p">
                             <li class="nav-sub-li">
-                                <div class="left-sub"><a href="">男士上装</a><span>&gt;</span></div>
+                                <div class="left-sub"><a href="/biyaoweb/category?category=男装">男士上装</a><span>&gt;</span></div>
                                 <div class="right-sub">
-                                    <a href="">POLO衫</a>
-                                    <a href="">男T恤</a>
-                                    <a href="">西服/套装</a>
-                                    <a href="">卫衣/针织衫</a>
+                                    <a href="/biyaoweb/category?category=男装">POLO衫</a>
+                                    <a href="/biyaoweb/category?category=男装">男T恤</a>
+                                    <a href="/biyaoweb/category?category=男装">西服/套装</a>
+                                    <a href="/biyaoweb/category?category=男装">卫衣/针织衫</a>
                                 </div>
                             </li>
                             <li class="nav-sub">
-                                <div class="left-sub"><a href="">男士下装</a><span>&gt;</span></div>
+                                <div class="left-sub"><a href="/biyaoweb/category?category=男装">男士下装</a><span>&gt;</span></div>
                                 <div class="right-sub">
-                                    <a href="">牛仔裤</a>
-                                    <a href="">休闲裤</a>
-                                    <a href="">西裤</a>
-                                    <a href="">短裤</a>
-                                </div>
-                            </li>
-                            <li class="nav-sub">
-                                <div class="left-sub"><a href="">男士上装</a><span>&gt;</span></div>
-                                <div class="right-sub">
-                                    <a href="">POLO衫</a>
-                                    <a href="">男T恤</a>
-                                    <a href="">西服/套装</a>
-                                    <a href="">卫衣/针织衫</a>
-                                </div>
-                            </li>
-                            <li class="nav-sub">
-                                <div class="left-sub"><a href="">男士下装</a><span>&gt;</span></div>
-                                <div class="right-sub">
-                                    <a href="">牛仔裤</a>
-                                    <a href="">休闲裤</a>
-                                    <a href="">西裤</a>
-                                    <a href="">短裤</a>
-                                </div>
-                            </li>
-                            <li class="nav-sub">
-                                <div class="left-sub"><a href="">男士下装</a><span>&gt;</span></div>
-                                <div class="right-sub">
-                                    <a href="">牛仔裤</a>
-                                    <a href="">休闲裤</a>
-                                    <a href="">西裤</a>
-                                    <a href="">短裤</a>
+                                    <a href="/biyaoweb/category?category=男装">牛仔裤</a>
+                                    <a href="/biyaoweb/category?category=男装">休闲裤</a>
+                                    <a href="/biyaoweb/category?category=男装">西裤</a>
+                                    <a href="/biyaoweb/category?category=男装">短裤</a>
                                 </div>
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-main"><p><a href="">眼镜</a><span>/</span><a href="">配饰</a></p>
+                    <li class="nav-main"><p><a href="/biyaoweb/category?category=女装">女装</a><span>/</span><a href="">定制</a></p>
                         <ul class="nav-sub-p">
                             <li class="nav-sub-li">
-                                <div class="left-sub"><a href="">男士上装2</a><span>&gt;</span></div>
+                                <div class="left-sub"><a href="/biyaoweb/category?category=女装">女士上衣</a><span>&gt;</span></div>
                                 <div class="right-sub">
                                     <a href="">POLO衫</a>
-                                    <a href="">男T恤</a>
+                                    <a href="">女T恤</a>
                                     <a href="">西服/套装</a>
                                     <a href="">卫衣/针织衫</a>
                                 </div>
                             </li>
                             <li class="nav-sub">
-                                <div class="left-sub"><a href="">男士下装</a><span>&gt;</span></div>
+                                <div class="left-sub"><a href="">女士下装</a><span>&gt;</span></div>
                                 <div class="right-sub">
                                     <a href="">牛仔裤</a>
                                     <a href="">休闲裤</a>
@@ -106,33 +79,7 @@
                                     <a href="">短裤</a>
                                 </div>
                             </li>
-                            <li class="nav-sub">
-                                <div class="left-sub"><a href="">男士上装</a><span>&gt;</span></div>
-                                <div class="right-sub">
-                                    <a href="">POLO衫</a>
-                                    <a href="">男T恤</a>
-                                    <a href="">西服/套装</a>
-                                    <a href="">卫衣/针织衫</a>
-                                </div>
-                            </li>
-                            <li class="nav-sub">
-                                <div class="left-sub"><a href="">男士下装</a><span>&gt;</span></div>
-                                <div class="right-sub">
-                                    <a href="">牛仔裤</a>
-                                    <a href="">休闲裤</a>
-                                    <a href="">西裤</a>
-                                    <a href="">短裤</a>
-                                </div>
-                            </li>
-                            <li class="nav-sub">
-                                <div class="left-sub"><a href="">男士下装</a><span>&gt;</span></div>
-                                <div class="right-sub">
-                                    <a href="">牛仔裤</a>
-                                    <a href="">休闲裤</a>
-                                    <a href="">西裤</a>
-                                    <a href="">短裤</a>
-                                </div>
-                            </li>
+
                         </ul>
                     </li>
                     <li class="nav-main"><p><a href="">鞋靴</a><span>/</span><a href="">运动</a></p>
@@ -1221,6 +1168,7 @@
                             </p>
                         </div>
                     </li>
+
                     <li>
                         <div class="hd">
                             <a href="" target="_blank">
@@ -1322,68 +1270,41 @@
         </div>
         <div class="catalog fixed">
             <ul>
-                <li class="nav-main"><p><a href="showCategory.html">男装</a> <span>/</span><a href="">女装</a></p>
+                <li class="nav-main"><p><a href="/biyaoweb/category?category=男装">男装</a> <span>/</span><a href="">定制</a></p>
                     <ul class="nav-sub-p">
                         <li class="nav-sub-li">
-                            <div class="left-sub"><a href="">男士上装</a><span>&gt;</span></div>
+                            <div class="left-sub"><a href="/biyaoweb/category?category=男装">男士上装</a><span>&gt;</span></div>
                             <div class="right-sub">
-                                <a href="">POLO衫</a>
-                                <a href="">男T恤</a>
-                                <a href="">西服/套装</a>
-                                <a href="">卫衣/针织衫</a>
+                                <a href="/biyaoweb/category?category=男装">POLO衫</a>
+                                <a href="/biyaoweb/category?category=男装">男T恤</a>
+                                <a href="/biyaoweb/category?category=男装">西服/套装</a>
+                                <a href="/biyaoweb/category?category=男装">卫衣/针织衫</a>
                             </div>
                         </li>
                         <li class="nav-sub">
-                            <div class="left-sub"><a href="">男士下装</a><span>&gt;</span></div>
+                            <div class="left-sub"><a href="/biyaoweb/category?category=男装">男士下装</a><span>&gt;</span></div>
                             <div class="right-sub">
-                                <a href="">牛仔裤</a>
-                                <a href="">休闲裤</a>
-                                <a href="">西裤</a>
-                                <a href="">短裤</a>
-                            </div>
-                        </li>
-                        <li class="nav-sub">
-                            <div class="left-sub"><a href="">男士上装</a><span>&gt;</span></div>
-                            <div class="right-sub">
-                                <a href="">POLO衫</a>
-                                <a href="">男T恤</a>
-                                <a href="">西服/套装</a>
-                                <a href="">卫衣/针织衫</a>
-                            </div>
-                        </li>
-                        <li class="nav-sub">
-                            <div class="left-sub"><a href="">男士下装</a><span>&gt;</span></div>
-                            <div class="right-sub">
-                                <a href="">牛仔裤</a>
-                                <a href="">休闲裤</a>
-                                <a href="">西裤</a>
-                                <a href="">短裤</a>
-                            </div>
-                        </li>
-                        <li class="nav-sub">
-                            <div class="left-sub"><a href="">男士下装</a><span>&gt;</span></div>
-                            <div class="right-sub">
-                                <a href="">牛仔裤</a>
-                                <a href="">休闲裤</a>
-                                <a href="">西裤</a>
-                                <a href="">短裤</a>
+                                <a href="/biyaoweb/category?category=男装">牛仔裤</a>
+                                <a href="/biyaoweb/category?category=男装">休闲裤</a>
+                                <a href="/biyaoweb/category?category=男装">西裤</a>
+                                <a href="/biyaoweb/category?category=男装">短裤</a>
                             </div>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-main"><p><a href="">眼镜</a><span>/</span><a href="">配饰</a></p>
+                <li class="nav-main"><p><a href="/biyaoweb/category?category=女装">女装</a><span>/</span><a href="">定制</a></p>
                     <ul class="nav-sub-p">
                         <li class="nav-sub-li">
-                            <div class="left-sub"><a href="">男士上装2</a><span>&gt;</span></div>
+                            <div class="left-sub"><a href="/biyaoweb/category?category=女装">女士上衣</a><span>&gt;</span></div>
                             <div class="right-sub">
                                 <a href="">POLO衫</a>
-                                <a href="">男T恤</a>
+                                <a href="">女T恤</a>
                                 <a href="">西服/套装</a>
                                 <a href="">卫衣/针织衫</a>
                             </div>
                         </li>
                         <li class="nav-sub">
-                            <div class="left-sub"><a href="">男士下装</a><span>&gt;</span></div>
+                            <div class="left-sub"><a href="">女士下装</a><span>&gt;</span></div>
                             <div class="right-sub">
                                 <a href="">牛仔裤</a>
                                 <a href="">休闲裤</a>
@@ -1391,33 +1312,7 @@
                                 <a href="">短裤</a>
                             </div>
                         </li>
-                        <li class="nav-sub">
-                            <div class="left-sub"><a href="">男士上装</a><span>&gt;</span></div>
-                            <div class="right-sub">
-                                <a href="">POLO衫</a>
-                                <a href="">男T恤</a>
-                                <a href="">西服/套装</a>
-                                <a href="">卫衣/针织衫</a>
-                            </div>
-                        </li>
-                        <li class="nav-sub">
-                            <div class="left-sub"><a href="">男士下装</a><span>&gt;</span></div>
-                            <div class="right-sub">
-                                <a href="">牛仔裤</a>
-                                <a href="">休闲裤</a>
-                                <a href="">西裤</a>
-                                <a href="">短裤</a>
-                            </div>
-                        </li>
-                        <li class="nav-sub">
-                            <div class="left-sub"><a href="">男士下装</a><span>&gt;</span></div>
-                            <div class="right-sub">
-                                <a href="">牛仔裤</a>
-                                <a href="">休闲裤</a>
-                                <a href="">西裤</a>
-                                <a href="">短裤</a>
-                            </div>
-                        </li>
+
                     </ul>
                 </li>
                 <li class="nav-main"><p><a href="">鞋靴</a><span>/</span><a href="">运动</a></p>

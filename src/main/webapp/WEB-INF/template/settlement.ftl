@@ -32,9 +32,9 @@
 <!-- 收获地址 -->
 <div class="address f-center">
     <h3 class="h-title">确认收货信息</h3>
-    <label>真实姓名：<input type="text" value="${user.trueName}"></label>
-    <label>收货地址：<input name="address" type="text" value="${user.address}"></label>
-    <label>联系电话：<input type="tel" value="${user.phoneNumber}"></label>
+    <label>真实姓名：<input class="trueName" type="text" value="${user.trueName}"></label>
+    <label>收货地址：<input class="address alter" name="address" type="text" value="${user.address}"></label>
+    <label>联系电话：<input class="phoneNumber" type="tel" value="${user.phoneNumber}"></label>
     <button class="changeAddr">修改收货地址</button>
 </div>
 
@@ -51,55 +51,16 @@
     </table>
 </div>
 <!-- footer-->
-<div class="ft">
-    <div class="ft-wrap f-center">
-        <div class="special-serve">
-            <ul class="f-cb">
-                <li class="serve-make">直连一线制造</li>
-                <li class="serve-shipping">全品类包邮</li>
-                <li class="serve-pay">平台先行赔付</li>
-                <li class="serve-refund">7天无忧退货</li>
-            </ul>
-        </div>
-        <div class="ft-content f-cb">
-            <ul class="f-cb">
-                <li>
-                    <h3>帮助中心</h3>
-                    <a href="">平台政策</a><a href="">商家入驻</a></li>
-                <li>
-                    <h3>关注必要</h3>
-                    <a href="">新浪微博</a><a href="">官方微信</a></li>
-                <li>
-                    <h3>关于必要</h3>
-                    <a href="">了解必要</a><a href="">加入必要</a><a href="">联系我们</a></li>
-                <li>
-                    <h3>下载必要app</h3>
-                    <img src="imgs/app.png"></li>
-            </ul>
-            <dl>
-                <dt>服务监督邮箱</dt>
-                <dd>service@biyao.com</dd>
-            </dl>
-        </div>
-    </div>
-</div>
+<#include "./include/footer.ftl">
 </body>
 <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
 <script>
     function settlement() {
-//        $.ajax({
-//            type:'GET',
-//            url:"data/data.json",
-//            success:function (data) {
-//                fillTemplate(data);
-//            }
-//        })
         var data = localStorage.getItem('sumData') && JSON.parse(localStorage.getItem('sumData'));
         // 根据json 信息 填写模版
-        console.log(data);
         fillTemplate(data.productArr);
         function  fillTemplate (productArr) {
-            console.log(productArr);
             var templateTable = '';
             productArr.forEach(function (t, number) {
                 var singleTable  = '    <table class="settlement-table '+ number + ' ">\n' +
@@ -147,6 +108,79 @@
 
             $('.order').append(templateSum);
         }
+
+
+
+        // 修改信息
+        $('.changeAddr').on('click', function (e) {
+            // 得到新的user 修改value
+            var user = {};
+            user.phoneNumber = $('.phoneNumber').val();
+            user.trueName = $('.trueName').val();
+            user.address = $('.address.alter').val();
+            debugger;
+            console.log(user);
+
+            $.ajax({
+                url:'/biyaoweb/alterOderInfo',
+                data:user,
+                type:'GET',
+                success: function (data) {
+                    console.log(data);
+                    $('.phoneNumber').val(data.user.phoneNumber);
+                    $('.trueName').val(data.user.trueName);
+                    $('.address.alter').val(data.user.address);
+                }
+            })
+        });
+
+        // 下单
+        function orderProducts() {
+
+            var productOrderList = [];
+            data.productArr.forEach(function (p1, p2, p3) {
+                var product = {};
+                product.productId = p1.productId;
+                product.color = p1.color;
+                product.size = p1.size;
+                product.imgURL = p1.imgURL;
+                product.name = p1.name;
+                product.price = p1.price.substring(1);
+                product.buyNumber = p1.number;
+                productOrderList.push(product);
+                console.log(product);
+            });
+
+            return productOrderList;
+
+        }
+
+        function bindBuy() {
+            $('.order-btn').on('click', function (e) {
+                var productOrderList = orderProducts();
+                $.ajax({
+                    type:'POST',
+                    url:"/biyaoweb/buy",
+                    dataType:"json",
+                    contentType:"application/json",
+                    data: JSON.stringify(productOrderList),
+                    success:function (data) {
+                        console.log(data);
+                        if (data.result){
+                            console.log('订单登记成功');
+                            localStorage.removeItem('sumData');
+                            location.href = '/biyaoweb/success'
+                        } else {
+                            console.log('失败')
+                        }
+                    }
+
+                })
+            });
+        }
+        bindBuy();
+
+
 
     }
     settlement();

@@ -4,6 +4,10 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          id="taotao" version="2.5">
     <display-name>Archetype Created Web Application</display-name>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error.jsp</location>
+    </error-page>
     <!-- 加载spring容器 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
