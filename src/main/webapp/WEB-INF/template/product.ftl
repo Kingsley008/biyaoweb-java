@@ -507,7 +507,7 @@
 </body>
 <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 <script type="text/javascript" src="js/ScrollEvent.js"></script>
-<!--<script type="text/javascript" src="js/shoppingcart.js"></script>-->
+<script type="text/javascript" src="js/util.js"></script>
 <script>
     /* 之后封装 */
     function handleClick() {
@@ -863,15 +863,57 @@
             container.html('');
             container.html(template);
         }
+
         // 切换到 购物车页面  并且 进行数据保存
-        $('.addShopCar').on('click', function () {
+        $('.panel-bottom').on('click', function (e) {
             var checked = dealCart();
+            var e = e || window.e;
             // 跳页前确认是否勾选参数
             if (typeof checked == 'boolean'){
                 return
             }
 
-            location.href = '/biyaoweb/shoppingCart';
+            if (e.target.className == 'addShopCar') {
+                location.href = '/biyaoweb/shoppingCart';
+
+            } else if (e.target.className = '.panel-buyNow') {
+
+                var sumData = {};
+                var productArr = [];
+                // 得到订单列表的数量
+                var obj = {};
+                obj.imgURL = $('.main-pic').attr('src');
+                obj.name = $('.product-name').text();
+                obj.color = $('.color-detail.lowModel-specs-active').text();
+                obj.size = $('.specs-detail.lowModel-specs-active').text();
+                obj.price = $('.panel-money').find('i').text();
+                obj.number = $('.panel-number').text();
+                sumData.totalNumber = obj.number;
+                var total = '&yen'+ (obj.number * obj.price);
+                obj.price =  '&yen' + obj.price;
+                obj.count = obj.price;
+                var ids = location.search.substring(1).split('=');
+                obj.productId = ids[1]; // productId
+                productArr.push(obj);
+                sumData.productArr = productArr;
+                sumData.totalPrice = total;
+
+                console.log(sumData);
+                localStorage.setItem('sumData', JSON.stringify(sumData));
+
+                var cookies = util.getCookie();
+
+                if(cookies.userId == null) {
+                    // 登入弹窗
+                    // TODO 做一个登录modal
+                    location.href = "/biyaoweb/login";
+                } else {
+                    location.href = "/biyaoweb/settlement";
+                }
+            }
+
+
+
         });
         // TODO 跳转订单确认页面
 

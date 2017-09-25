@@ -59,7 +59,13 @@
     function settlement() {
         var data = localStorage.getItem('sumData') && JSON.parse(localStorage.getItem('sumData'));
         // 根据json 信息 填写模版
+        if (data == null || data.productArr == null) {
+            $('.order').html('<h2 style="font-size: 18px">当前没有订单信息</h2>');
+            return;
+        }
+
         fillTemplate(data.productArr);
+
         function  fillTemplate (productArr) {
             var templateTable = '';
             productArr.forEach(function (t, number) {
@@ -101,7 +107,7 @@
                     '        <p>商品总数 <span class="total-num ff6600">' + data.totalNumber + '件</span></p>\n' +
                     '        <p>商品总价：<span class="total-price ff6600"> ' + data.totalPrice + '</span></p>\n' +
                     '        <div>\n' +
-                    '            <button class="cart-btn">返回购物车</button>\n' +
+                    '            <button class="cart-btn cancel-btn">取消订单</button>\n' +
                     '            <button class="order-btn">提交订单</button>\n' +
                     '        </div>\n' +
                     '    </div>'
@@ -140,21 +146,20 @@
             var productOrderList = [];
             data.productArr.forEach(function (p1, p2, p3) {
                 var product = {};
-                product.productId = p1.productId;
+                product.productId = +p1.productId;
+                product.name = p1.name;
                 product.color = p1.color;
                 product.size = p1.size;
-                product.imgURL = p1.imgURL;
-                product.name = p1.name;
-                product.price = p1.price.substring(1);
-                product.buyNumber = p1.number;
+                product.price = +p1.price.substring(1);
+
                 productOrderList.push(product);
-                console.log(product);
+                console.log(productOrderList);
             });
 
             return productOrderList;
 
         }
-
+        // 保存下单信息
         function bindBuy() {
             $('.order-btn').on('click', function (e) {
                 var productOrderList = orderProducts();
@@ -169,6 +174,7 @@
                         if (data.result){
                             console.log('订单登记成功');
                             localStorage.removeItem('sumData');
+                            localStorage.removeItem('productCart');
                             location.href = '/biyaoweb/success'
                         } else {
                             console.log('失败')
@@ -178,7 +184,15 @@
                 })
             });
         }
+        // 取消订单
+        function bindCancelOrder() {
+            $('.cancel-btn').on('click', function () {
+                localStorage.removeItem('sumData');
+                location.href = '/biyaoweb/index';
+            })
+        }
         bindBuy();
+        bindCancelOrder();
 
 
 

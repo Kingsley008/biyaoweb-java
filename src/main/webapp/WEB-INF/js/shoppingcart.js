@@ -186,8 +186,8 @@
                 //绑定结算按钮
                 $('.settlement-btn').on('click',function () {
                     // 重新组织 数据结构
-                    var sumData = {};
-                    var productArr = [];
+                    var sumData = JSON.parse(localStorage.getItem('sumData')) || {};
+                    var productArr = sumData.productArr || [];
                     // 得到订单列表的数量
                     var $tables = $('.shopping-table');
                     var length = $tables.length + 1;

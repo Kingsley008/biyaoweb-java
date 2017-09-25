@@ -15,7 +15,7 @@
                     <b class="drop-icon"></b>
                     <ul>
                         <li><a href="/biyaoweb/settlement" target="_blank" class="myOrder">我的订单</a></li>
-                        <li><a href="/biyaoweb/self" target="_blank">个人中心</a></li>
+                        <li><a href="/biyaoweb/getOrderList" target="_blank">已购买</a></li>
                         <li><a href="/biyaoweb/logout" class="logout">退出登录</a></li>
                     </ul>
                 </div>

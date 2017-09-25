@@ -77,14 +77,15 @@ DROP TABLE trx;
 create table trx(
 id int auto_increment primary key comment "主键",
 contentId int  comment "商品ID",
-personId int comment "用户ID",
+userId int comment "用户ID",
 trueName VARCHAR (20),
 address VARCHAR (100),
 price int comment "购买价格",
 color varchar(100) comment"颜色",
 size varchar(100) comment"尺寸",
-time varchar(30) comment "购买时间",
-buynum int comment"购买数量",
+buyTime varchar(30) comment "购买时间",
+buyNumber int comment"购买数量",
 comments varchar(1500) comment "评论内容" DEFAULT NULL
 )
 ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
