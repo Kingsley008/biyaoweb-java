@@ -27,8 +27,11 @@ public interface Orderdao {
             @Result(property="color", column="color"),
             @Result(property="buyTime", column="buytime"),
             @Result(property="buyNumber", column="buyNumber"),
-            @Result(property="comments", column="comments")
+            @Result(property="comments", column="comments"),
+            @Result(property="productName", column="productName"),
+            @Result(property="icon", column="icon")
     })
+
     @Select("select * from trx where userId = #{userId} ")
     ArrayList<TrxInfobean> showOderList(@Param(value = "userId") int userId);
 }

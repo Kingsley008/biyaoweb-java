@@ -9,6 +9,16 @@ public class ProductOrderList {
     private String size;
     private String color;
     private int price;
+    private  int buyNumber;
+    private String icon;
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
 
     @Override
     public String toString() {
@@ -71,6 +81,5 @@ public class ProductOrderList {
         this.buyNumber = buyNumber;
     }
 
-    private int buyNumber;
 
 }

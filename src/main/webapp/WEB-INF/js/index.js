@@ -224,6 +224,7 @@ var hoverSelected = function () {
 
 var _main = function () {
     // 处理cookie
+
     var cookies = util.getCookie();
     console.log(cookies);
     var userId  = cookies.userId? cookies.userId : null;

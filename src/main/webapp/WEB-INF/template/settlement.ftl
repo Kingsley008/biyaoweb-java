@@ -144,14 +144,16 @@
         function orderProducts() {
 
             var productOrderList = [];
+            console.log(data.productArr[0].name, data.productArr[0].size);
             data.productArr.forEach(function (p1, p2, p3) {
                 var product = {};
                 product.productId = +p1.productId;
                 product.name = p1.name;
                 product.color = p1.color;
                 product.size = p1.size;
-                product.price = +p1.price.substring(1);
-
+                product.icon = p1.imgURL;
+                product.price = parseInt(p1.price.substring(1));
+                product.buyNumber = p1.number;
                 productOrderList.push(product);
                 console.log(productOrderList);
             });

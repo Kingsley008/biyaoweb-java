@@ -85,7 +85,9 @@ color varchar(100) comment"颜色",
 size varchar(100) comment"尺寸",
 buyTime varchar(30) comment "购买时间",
 buyNumber int comment"购买数量",
-comments varchar(1500) comment "评论内容" DEFAULT NULL
+comments varchar(1500) comment "评论内容" DEFAULT NULL,
+icon VARCHAR (100),
+productName VARCHAR (100)
 )
 ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 

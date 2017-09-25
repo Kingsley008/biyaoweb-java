@@ -43,6 +43,11 @@ public class ProductService {
             trx.setContentId(list.getProductId());
             trx.setPrice(list.getPrice());
             trx.setColor(list.getColor());
+            trx.setIcon(list.getIcon());
+            trx.setSize(list.getSize());
+            trx.setProductName(list.getName());
+            trx.setBuyNumber(list.getBuyNumber());
+
             trx.setAddress(user.getAddress());
             trx.setBuyNumber(list.getBuyNumber());
             trx.setTrueName(user.getTrueName());
@@ -53,7 +58,7 @@ public class ProductService {
             trx.setBuyTime(goodsC_date);
             arr.add(trx);
         }
-        String sql = "insert into trx values (0,?,?,?,?,?,?,?,?,?,null)";
+        String sql = "insert into trx values (0,?,?,?,?,?,?,?,?,?,null,?,?)";
         //通过内部类创建批处理对象
         BatchPreparedStatementSetter bts = new BatchPreparedStatementSetter() {
             @Override
@@ -68,8 +73,9 @@ public class ProductService {
                 ps.setString(7, arr.get(i).getSize());
                 ps.setString(8, arr.get(i).getBuyTime());
                 ps.setInt(9, arr.get(i).getBuyNumber());
+                ps.setString(10, arr.get(i).getIcon());
+                ps.setString(11, arr.get(i).getProductName());
             }
-
             @Override
             public int getBatchSize() {
                 // 得到批量增加的size

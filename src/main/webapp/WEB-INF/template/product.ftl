@@ -889,8 +889,8 @@
                 obj.price = $('.panel-money').find('i').text();
                 obj.number = $('.panel-number').text();
                 sumData.totalNumber = obj.number;
-                var total = '&yen'+ (obj.number * obj.price);
-                obj.price =  '&yen' + obj.price;
+                var total = '￥'+ (obj.number * obj.price);
+                obj.price =  '￥' + obj.price;
                 obj.count = obj.price;
                 var ids = location.search.substring(1).split('=');
                 obj.productId = ids[1]; // productId

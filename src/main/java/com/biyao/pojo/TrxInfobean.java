@@ -3,19 +3,6 @@ package com.biyao.pojo;
 import java.util.Date;
 
 /**
- * Created by ASUS on 2017/9/21.
- * create table trx(
- id int auto_increment primary key comment "主键",
- contentId int  comment "商品ID",
- personId int comment "用户ID",
- trueName VARCHAR (20),
- address VARCHAR (100),
- price int comment "购买价格",
- color varchar(30) comment"颜色",
- size varchar(100) comment"尺寸",
- time varchar(30) comment "购买时间",
- buynum int comment"购买数量",
- comments varchar(500) comment "评论内容" DEFAULT NULL,
  )
  */
 public class TrxInfobean {
@@ -30,6 +17,25 @@ public class TrxInfobean {
     private int buyNumber; // 新
     private String comment; // 新
     private int price;
+    private String icon;
+    private String productName;
+
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
 
     public int getPrice() {
         return price;

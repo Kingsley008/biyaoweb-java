@@ -231,6 +231,7 @@ public class PageViewController {
     public String checkBuy(@RequestBody List<ProductOrderList> productOrderList, ModelMap map, HttpServletResponse response, HttpSession session, HttpServletRequest request) throws IOException, ServletException {
        //涉及到了事务的管理
         User user = (User) session.getAttribute("user");
+        System.out.print(productOrderList.get(0));
         int i = productService.dealOrder(user,productOrderList);
         boolean b =  false;
         System.out.print(productOrderList);
