@@ -255,6 +255,15 @@ public class PageViewController {
         }
         return "success";
     }
+    @RequestMapping(value = "/purchased")
+    public String showPurchased(ModelMap map, HttpSession session) throws IOException {
+        User user = (User)session.getAttribute("user");
+        if(user != null){
+            map.addAttribute("user", user);
+        }
+
+        return "purchased";
+    }
 
 
 

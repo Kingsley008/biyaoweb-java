@@ -48,7 +48,7 @@
     function settlement() {
         $.ajax({
             type:'GET',
-            url:"/biyaoweb/pu.json",
+            url:"/biyaoweb/getOrderList",
             success:function (data) {
                 fillTemplate(data);
             }
@@ -64,7 +64,7 @@
                         '            <td>\n' +
                         '                <span class="shop-img">\n' +
                         '                    <a href="" target="_blank">\n' +
-                        '                        <img width="100" height="100" src="'+ t.id + '">\n' +
+                        '                        <img width="100" height="100" src="'+ t.icon + '">\n' +
                         '                    </a>\n' +
                         '                </span>\n' +
                         '            </td>\n' +
