@@ -3,6 +3,9 @@ body, html{
     background-color: #fff;
 
 }
+li {
+    list-style: none;
+}
 .section.f-center {
     height: auto !important;
 }
@@ -365,6 +368,12 @@ body, html{
     width: 25px;
     height: 25px;
     background: url("../imgs/icon/icon_good.png") no-repeat center;
+}
+
+.eval-result .bad-icon {
+    width: 25px;
+    height: 25px;
+    background: url("../imgs/icon/icon_bad.png") no-repeat center;
 }
 
 .no-more-comment {

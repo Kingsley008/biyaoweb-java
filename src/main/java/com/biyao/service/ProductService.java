@@ -58,7 +58,7 @@ public class ProductService {
             trx.setBuyTime(goodsC_date);
             arr.add(trx);
         }
-        String sql = "insert into trx values (0,?,?,?,?,?,?,?,?,?,null,?,?)";
+        String sql = "insert into trx values (0,?,?,?,?,?,?,?,?,?,null,null,?,?)";
         //通过内部类创建批处理对象
         BatchPreparedStatementSetter bts = new BatchPreparedStatementSetter() {
             @Override

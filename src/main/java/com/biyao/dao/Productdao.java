@@ -85,4 +85,6 @@ public interface Productdao {
     @Select("select distinct subCatagory from content where catagory = #{catagory} ")
     ArrayList<Subcatagory> showSubCatagoryList(@Param(value = "catagory") String catagory);
 
+
+
 }

@@ -1628,4 +1628,39 @@
 <script type="text/javascript" src="js/ScrollEvent.js"></script>
 <script type="text/javascript" src="js/index.js">
 </script>
+<script>
+    /* 拉取评论内容*/
+    $.ajax({
+        url:'/biyaoweb/showComments',
+        type:'GET',
+        data:null,
+        success:function (data) {
+            var list = data.commentsList;
+            var totalTemp = "";
+            list.forEach(function (value, index, p3) {
+                var template = '                    <li>\n' +
+                        '                        <div class="hd">\n' +
+                        '                            <a href="" target="_blank">\n' +
+                        '                                <img class="new-pic1 " src="'+ value.icon +'" alt="'+ value.productName +'">\n' +
+                        '                            </a>\n' +
+                        '                        </div>\n' +
+                        '                        <div class="bd">\n' +
+                        '                            <div class="user-id">'+ value.trueName.substring(0,1) + '***' +'</div>\n' +
+                        '                            <div class="comment-time">'+ value.buyTime+'</div>\n' +
+                        '                            <h3 class="name f-toe" title="'+ value.productName +'">'+ value.productName +'</h3>\n' +
+                        '                            <span class="price">&yen;'+ value.price +' </span>\n' +
+                        '                            <p class="commnet-content f-toe">'+ value.comments+
+                '                            </p>\n' +
+                '                        </div>\n' +
+                '                    </li>';
+                totalTemp += template;
+            });
+            $('.m-move-sub-comment').html(totalTemp);
+
+        }
+    });
+
+
+
+</script>
 </html>

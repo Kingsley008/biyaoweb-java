@@ -15,11 +15,19 @@ public class TrxInfobean {
     private String size;
     private String buyTime; // 新
     private int buyNumber; // 新
-    private String comment; // 新
+    private String comments; // 新
     private int price;
     private String icon;
     private String productName;
+    private int rank;
 
+    public int getRank() {
+        return rank;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
 
     public String getIcon() {
         return icon;
@@ -117,12 +125,12 @@ public class TrxInfobean {
         this.buyNumber = buyNumber;
     }
 
-    public String getComment() {
-        return comment;
+    public String getComments() {
+        return comments;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 
     @Override
@@ -135,9 +143,13 @@ public class TrxInfobean {
                 ", address='" + address + '\'' +
                 ", color='" + color + '\'' +
                 ", size='" + size + '\'' +
-                ", buyTime=" + buyTime +
+                ", buyTime='" + buyTime + '\'' +
                 ", buyNumber=" + buyNumber +
-                ", comment='" + comment + '\'' +
+                ", comments='" + comments + '\'' +
+                ", price=" + price +
+                ", icon='" + icon + '\'' +
+                ", productName='" + productName + '\'' +
+                ", rank=" + rank +
                 '}';
     }
 }

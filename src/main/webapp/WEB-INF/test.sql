@@ -85,6 +85,7 @@ color varchar(100) comment"颜色",
 size varchar(100) comment"尺寸",
 buyTime varchar(30) comment "购买时间",
 buyNumber int comment"购买数量",
+rank int comment "1:好评 ；2：中评3：差评" DEFAULT NULL,
 comments varchar(1500) comment "评论内容" DEFAULT NULL,
 icon VARCHAR (100),
 productName VARCHAR (100)
