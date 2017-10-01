@@ -9,6 +9,15 @@ public class User {
    private String password;
    private String address;
    private String trueName;
+   private int type;
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
 
     @Override
     public String toString() {

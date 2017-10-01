@@ -26,8 +26,14 @@ public interface Productdao {
             @Result(property="imgURL", column="imgURL"),
             @Result(property="pageURL", column="pageURL"),
     })
-    @Select("select id,imgURL,pageURL from sliders")
-    List<IndexSlider> getIndexInfo();
+    @Select("select id,imgURL,pageURL,productName from sliders")
+    List<IndexSlider> getSliderInfo();
+    /*
+    * 更新投图信息
+    *
+    * */
+    @Select("update sliders set imgURL = #{imgURL},pageURL = #{pageURL}, productName = #{productName} where id = #{id}")
+    String updateSliderInfo(@Param(value = "id") int id,@Param(value = "imgURL") String imgURL, @Param(value = "pageURL") String pageURL, @Param(value = "productName") String prodcutName);
 
     /**
      * 通过一个商品的分类,得到一组商品的展示信息

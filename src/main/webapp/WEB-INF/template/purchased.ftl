@@ -64,6 +64,7 @@
 <#include "./include/footer.ftl">
 </body>
 <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<script src="js/notice.js"></script>
 <script src="js/AjaxUtil.js"></script>
 <script>
         
@@ -110,8 +111,8 @@
                         '                    <span class="product-name">'+ t.productName + '</span>\n' +
                         '                </a>\n' +
                         '                <div class="product-des">\n' +
-                        '                    <p>颜色:'+ t.color + '</p>\n' +
-                        '                    <p>尺寸：'+ t.size  + '</p>\n' +
+                        '                    <p>'+ t.color + '</p>\n' +
+                        '                    <p>'+ t.size  + '</p>\n' +
                         '                </div>\n' +
                         '            </td>\n' +
                         '            <td width="10%" class="single-price ff6600">&yen;'+ t.price + '</td>\n' +
@@ -154,8 +155,7 @@
                         data:data,
                         success: function () {
                             // 再做个提示插件
-                            alert('评论成功');
-
+                            window.notice('评论成功');
                             $('.comment-box'+ number).slideUp();
                             $('.comment-btn' + number).text('已评论');
                             $('.comment-btn' + number).attr('disabled',true);

@@ -133,7 +133,7 @@
                                 //跳转到index
                                 location.href = "/biyaoweb/index";
                             } else {
-                                alert(data.message);
+                                window.notice('手机号或密码不正确');
                             }
                         }
                     });
@@ -170,10 +170,11 @@
                         data:o,
                         type:'POST',
                         success:function (data) {
-                            console.log(data);
                             if(data.result === 1) {
-                                alert('你已经注册成功 即将跳转到登录页面');
-                                location.href = '/biyaoweb/login';
+                                window.notice('你已经注册成功 即将跳转到登录页面');
+                                setTimeout(function () {
+                                    location.href = '/biyaoweb/login';
+                                },2000);
                             }
                         }
                     });

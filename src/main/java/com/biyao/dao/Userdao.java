@@ -14,7 +14,7 @@ public interface Userdao {
     /**
      * 注册添加新用户
      */
-    @Insert("insert into user values(0,#{phoneNumber},#{password},#{trueName},#{address})")
+    @Insert("insert into user values(0,#{phoneNumber},#{password},#{trueName},#{address},0)")
     int addUser(@Param(value = "phoneNumber")String phoneNumber, @Param(value = "password")String password, @Param(value = "address")String address,
                       @Param(value = "trueName")String trueName);
     /**

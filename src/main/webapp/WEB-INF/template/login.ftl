@@ -39,6 +39,7 @@
 <script src ="js/util.js"></script>
 <script type="text/javascript" src="js/md5.js"></script>
 <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<script src="js/notice.js"></script>
 <script type="text/javascript" src="js/validate.js"></script>
 <script>
     $.validate({

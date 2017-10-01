@@ -701,7 +701,7 @@
             '\n' +
             '        </div>';
 
-        var templateComment = ' <p>商品满意度：<span class="total-eval">4.8分</span></p>\n' +
+  /*      var templateComment = ' <p>商品满意度：<span class="total-eval">4.8分</span></p>\n' +
             '            <ul>\n' +
             '                <li class="f-cb">\n' +
             '                    <div class="eval-user">\n' +
@@ -920,7 +920,7 @@
             '                    </div>\n' +
             '                </li>\n' +
             '                <p class="no-more-comment">没有更多评论了</p>\n' +
-            '            </ul>\n' ;
+            '            </ul>\n' ;*/
         var template = {
             detail: templateDetail,
             comment: templateComment,
@@ -947,7 +947,7 @@
         }
         // 切换到 购物车页面  并且 进行数据保存
         $('.addShopCar').on('click', function () {
-            dealCart()
+            dealCart();
             // 跳页
             location.href = 'shoppingcart.html';
         })
@@ -964,8 +964,9 @@
             if(!localStorage.getItem('productCart')) {
                 // 当前没有购物车 创建购物车
                 var productArr = [];
-                localStorage.setItem('productCart',JSON.stringify(productArr));
                 productArr.push(productObj);
+                localStorage.setItem('productCart',JSON.stringify(productArr));
+
             } else {
                // 已有购物车 取出
                 var arr = JSON.parse(localStorage.getItem('productCart'));

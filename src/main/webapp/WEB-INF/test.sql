@@ -24,17 +24,20 @@ ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 drop table user;
 /* 用户 */
+DROP TABLE  user;
+
 create table user(
 id int auto_increment primary key comment "主键",
 phoneNumber varchar(100) comment "用户手机号",
 password varchar(100) comment "密码md5加密",
 trueName varchar(50) comment "用户真名",
-address varchar(100) comment "用户地址")
+address varchar(100) comment "用户地址",
+type int comment"0 用户， 1管理员")
 ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 
-/* 测试数据 密码对应 reyub */
-insert into `person` (`id`, `userName`, `password`, `nickName`, `userType`) values('1','buyer','37254660e226ea65ce6f1efd54233424','buyer','0');
+/* 测试数据 密码对应 admin */
+insert into user values(0,'admin','21232f297a57a5a743894a0e4a801fc3','admin','admin',1);
 
 DROP TABLE content;
 /* 商品 */
@@ -51,7 +54,7 @@ colors varchar(100) comment "可选颜色;分割",
 price bigint  comment "当前价格",
 icon varchar(300) comment "封面图片",
 imgs VARCHAR (300) comment "全部的展示图片",
-text varchar(20000) comment "详情页html内容"
+text LONGTEXT comment "详情页html内容"
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 /* 男装测试数据 */

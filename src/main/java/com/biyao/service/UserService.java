@@ -46,6 +46,7 @@ public class UserService {
                         user.setTrueName(rs.getString("trueName"));
                         user.setPassword(rs.getString("password"));
                         user.setAddress(rs.getString("address"));
+                        user.setType(rs.getInt("type"));
                         return user;
                     }
                 });

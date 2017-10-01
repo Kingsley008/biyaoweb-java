@@ -37,7 +37,7 @@ public class PageViewController {
     **/
     @RequestMapping(value = "/index")
     public String showIndex(ModelMap map, HttpSession session, HttpServletRequest request) throws IOException {
-        ArrayList<IndexSlider> sliderList = (ArrayList<IndexSlider>) productdao.getIndexInfo();
+        ArrayList<IndexSlider> sliderList = (ArrayList<IndexSlider>) productdao.getSliderInfo();
         User user = null;
         map.addAttribute("sliderList",sliderList);
         // 通过cookie中的userId 查询U
@@ -205,56 +205,6 @@ public class PageViewController {
         return "settlement";
     }
 
-    @RequestMapping(value = "/alterOderInfo", produces ="application/json")
-    public String alterOderInfo(ModelMap map, HttpSession session, HttpServletRequest request) throws IOException {
-        User user = (User)session.getAttribute("user");
-        String newAddress = request.getParameter("address");
-        String newName = request.getParameter("trueName");
-        String newPhoneNumber = request.getParameter("phoneNumber");
-        System.out.print(newAddress + newName + newPhoneNumber);
-        userdao.updateUserById(user.getId(),newName, newAddress, newPhoneNumber);
-        User newUser = userdao.findUserById(user.getId());
-        session.setAttribute("user", newUser);
-        if(newUser != null){
-            map.addAttribute("user", newUser);
-        }
-
-        return "settlement";
-    }
-
-
-    //处理订单返回一个JSON数据
-    // @RequestBody List<> products 接受json数据 记录每一个商品的  contentId name color size buyNum
-    // 从 session 中的user 得到 truename  userId
-    // service 处理 当前date
-    @RequestMapping(value = "/buy" ,produces="application/json",method= RequestMethod.POST)
-    public String checkBuy(@RequestBody List<ProductOrderList> productOrderList, ModelMap map, HttpServletResponse response, HttpSession session, HttpServletRequest request) throws IOException, ServletException {
-       //涉及到了事务的管理
-        User user = (User) session.getAttribute("user");
-        System.out.print(productOrderList.get(0));
-        int i = productService.dealOrder(user,productOrderList);
-        boolean b =  false;
-        System.out.print(productOrderList);
-        int code = response.getStatus();
-        if(code > 0){
-            b = true;
-        }
-        //返回一个JSON数据
-        map.addAttribute("code",code);
-        map.addAttribute("result",b);
-
-        return"settleAccount";
-
-    }
-
-    @RequestMapping(value = "/success")
-    public String showSuccess(ModelMap map, HttpSession session) throws IOException {
-        User user = (User)session.getAttribute("user");
-        if(user != null){
-            map.addAttribute("user", user);
-        }
-        return "success";
-    }
     @RequestMapping(value = "/purchased")
     public String showPurchased(ModelMap map, HttpSession session) throws IOException {
         User user = (User)session.getAttribute("user");
