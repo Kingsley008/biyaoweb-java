@@ -124,7 +124,7 @@
             user.phoneNumber = $('.phoneNumber').val();
             user.trueName = $('.trueName').val();
             user.address = $('.address.alter').val();
-            debugger;
+
             console.log(user);
 
             $.ajax({

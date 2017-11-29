@@ -59,22 +59,28 @@ public class UserController {
             map.addAttribute("user", user);
             map.addAttribute("message","不要重复登录请先退出");
         } else {
-            String phoneNumber = request.getParameter("phoneNumber");
+            String phoneNumber = request.getParameter("username");
             String password = request.getParameter("password");
             boolean ret = userService.checkUser(phoneNumber,password);
+            System.out.print(phoneNumber+password+"ret"+ret);
             if (ret) {
-                //将用户加入到session中
+                //TODO 将用户加入cookie 返回 再加一个接口/user 查询cookie中的user
                 user = userService.getUser();
+                System.out.println( "address"+ user.getAddress());
                 session.setAttribute("user", user);
-
+                user = (User)session.getAttribute("user");
+                System.out.println(user.getAddress());
                 map.addAttribute("result", 1);
+                map.addAttribute("success",true);
                 map.addAttribute("user",user);
             } else {
                 String message ="帐号密码错误";
                 //将状态码，信息，结果 响应 Ajax 的异步请求
                 map.addAttribute("message",message);
+                map.addAttribute("success",false);
                 map.addAttribute("result",ret);
             }
+
             map.addAttribute("status", response.getStatus());
         }
 

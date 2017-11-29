@@ -77,6 +77,6 @@ public interface Orderdao {
             @Result(property="icon", column="icon")
     })
 
-    @Select("select * from trx  where productName = #{productName} order by id desc LIMIT 20" )
-    ArrayList<TrxInfobean> getComments(String productName);
+    @Select("select * from trx  where contentId = #{id} order by id desc LIMIT 20" )
+    ArrayList<TrxInfobean> getComments(int id);
 }

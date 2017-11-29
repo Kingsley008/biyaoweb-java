@@ -117,7 +117,7 @@
                 if(self.valid){
                     console.log("v");
                     var user = {
-                        phoneNumber : self.$phoneNum.val(),
+                        username:self.$phoneNum.val(),
                         password:md5(self.$password.val())
                     };
                     // $.post();

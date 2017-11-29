@@ -69,7 +69,7 @@ NULL);
 INSERT INTO content (id, name,produceDate ,intro ,catagory,subCatagory, sizes, newicon, colors, price, icon, imgs, text) VALUES
  (0, "立体拼接口袋长款上衣",15,"一切如常便是生活真味","女装","上衣",
  "XS;S;M;L;XL", "1","黑色;白色",
- 205,"imgs/show/show-small2.jpg","imgs/product/p6.jpg;imgs/product/p7.jpg;imgs/product/p8.jpg;imgs/product/p9.jpg;imgs/product/p10.jpg",
+ 205,"imgs/show/showsmall2.jpg","imgs/product/p6.jpg;imgs/product/p7.jpg;imgs/product/p8.jpg;imgs/product/p9.jpg;imgs/product/p10.jpg",
 NULL);
 
 select * from content where catagory="男装" and subCatagory = "衬衫";

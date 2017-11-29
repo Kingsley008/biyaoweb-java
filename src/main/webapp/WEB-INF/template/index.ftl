@@ -22,7 +22,7 @@
         <div class="banner-slider">
             <ul class="sliders">
                 <#list sliderList as x>
-                <li><a href="/biyaoweb/show?productName = ${x.productName}"><img src="${x.imgURL}" alt="banner" width="1080"></a></li>
+                <li><a href="/biyaoweb/product?productId=${x.id}"><img src="${x.imgURL}" alt="banner" width="1080"></a></li>
                 </#list>
             </ul>
             <span class="prev"></span>
@@ -822,7 +822,7 @@
         <ul class="m-show-wrap lady f-cb">
           <#--  <li class="item-large">
                 <div class="hd">
-                    <a href=""><img src="imgs/show/show-large.jpg" width="423"></a>
+                    <a href=""><img src="imgs/show/showlarge.jpg" width="423"></a>
                 </div>
                 <div class="bd">
                     <p class="item-large-intro f-toe">Hugo Boss、 PRADA 制造商出品</p>
@@ -830,7 +830,7 @@
             </li>
             <li class="item-small">
                 <div class="hd">
-                    <a href=""><img src="imgs/show/show-small.jpg" width="204"></a>
+                    <a href=""><img src="imgs/show/showsmall.jpg" width="204"></a>
                 </div>
                 <div class="bd">
                     <a href=""><p class="item-small-intro f-toe">三防免烫衬衫五色</p></a>
@@ -839,7 +839,7 @@
             </li>
             <li class="item-small">
                 <div class="hd">
-                    <a href=""><img src="imgs/show/show-small.jpg" width="204"></a>
+                    <a href=""><img src="imgs/show/showsmall.jpg" width="204"></a>
                 </div>
                 <div class="bd">
                     <a href=""><p class="item-small-intro f-toe">三防免烫衬衫五色</p></a>
@@ -848,7 +848,7 @@
             </li>
             <li class="item-small">
                 <div class="hd">
-                    <a href=""><img src="imgs/show/show-small.jpg" width="204"></a>
+                    <a href=""><img src="imgs/show/showsmall.jpg" width="204"></a>
                 </div>
                 <div class="bd">
                     <a href=""><p class="item-small-intro f-toe">三防免烫衬衫五色</p></a>
@@ -857,7 +857,7 @@
             </li>
             <li class="item-small">
                 <div class="hd">
-                    <a href=""><img src="imgs/show/show-small.jpg" width="204"></a>
+                    <a href=""><img src="imgs/show/showsmall.jpg" width="204"></a>
                 </div>
                 <div class="bd">
                     <a href=""><p class="item-small-intro f-toe">三防免烫衬衫五色</p></a>
@@ -866,7 +866,7 @@
             </li>
             <li class="item-small">
                 <div class="hd">
-                    <a href=""><img src="imgs/show/show-small.jpg" width="204"></a>
+                    <a href=""><img src="imgs/show/showsmall.jpg" width="204"></a>
                 </div>
                 <div class="bd">
                     <a href=""><p class="item-small-intro f-toe">三防免烫衬衫五色</p></a>
@@ -875,7 +875,7 @@
             </li>
             <li class="item-small">
                 <div class="hd">
-                    <a href=""><img src="imgs/show/show-small.jpg" width="204"></a>
+                    <a href=""><img src="imgs/show/showsmall.jpg" width="204"></a>
                 </div>
                 <div class="bd">
                     <a href=""><p class="item-small-intro f-toe">三防免烫衬衫五色</p></a>
@@ -884,7 +884,7 @@
             </li>
             <li class="item-small">
                 <div class="hd">
-                    <a href=""><img src="imgs/show/show-small.jpg" width="204"></a>
+                    <a href=""><img src="imgs/show/showsmall.jpg" width="204"></a>
                 </div>
                 <div class="bd">
                     <a href=""><p class="item-small-intro f-toe">三防免烫衬衫五色</p></a>
@@ -893,7 +893,7 @@
             </li>
             <li class="item-small">
                 <div class="hd">
-                    <a href=""><img src="imgs/show/show-small.jpg" width="204"></a>
+                    <a href=""><img src="imgs/show/showsmall.jpg" width="204"></a>
                 </div>
                 <div class="bd">
                     <a href=""><p class="item-small-intro f-toe">三防免烫衬衫五色</p></a>
@@ -912,348 +912,6 @@
         <div class="m-comment wrap f-cb">
             <div class="m-move-comment">
                 <ul class="m-move-sub-comment f-cb">
-                    <!-- 显示了20个产品的评论 -->
-                    <li>
-                        <div class="hd">
-                            <a href="" target="_blank">
-                                <img class="new-pic1 " src="imgs/speak/speak1.jpg" alt="平滑细篾头层青碳化竹凉席">
-                            </a>
-                        </div>
-                        <div class="bd">
-                            <div class="user-id">1****9</div>
-                            <div class="comment-time">2018-08-12 10:32</div>
-                            <h3 class="name f-toe" title="平滑细篾头层青碳化竹凉席">1平滑细篾头层青碳化竹凉席</h3>
-                            <span class="price">&yen;259 </span>
-                            <p class="commnet-content f-toe">质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="hd">
-                            <a href="" target="_blank">
-                                <img class="new-pic1 " src="imgs/speak/speak1.jpg" alt="平滑细篾头层青碳化竹凉席">
-                            </a>
-                        </div>
-                        <div class="bd">
-                            <div class="user-id">1****9</div>
-                            <div class="comment-time">2018-08-12 10:32</div>
-                            <h3 class="name f-toe" title="平滑细篾头层青碳化竹凉席">平滑细篾头层青碳化竹凉席</h3>
-                            <span class="price">&yen;259 </span>
-                            <p class="commnet-content f-toe">质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="hd">
-                            <a href="" target="_blank">
-                                <img class="new-pic1 " src="imgs/speak/speak1.jpg" alt="平滑细篾头层青碳化竹凉席">
-                            </a>
-                        </div>
-                        <div class="bd">
-                            <div class="user-id">1****9</div>
-                            <div class="comment-time">2018-08-12 10:32</div>
-                            <h3 class="name f-toe" title="平滑细篾头层青碳化竹凉席">平滑细篾头层青碳化竹凉席</h3>
-                            <span class="price">&yen;259 </span>
-                            <p class="commnet-content f-toe">质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="hd">
-                            <a href="" target="_blank">
-                                <img class="new-pic1 " src="imgs/speak/speak1.jpg" alt="平滑细篾头层青碳化竹凉席">
-                            </a>
-                        </div>
-                        <div class="bd">
-                            <div class="user-id">1****9</div>
-                            <div class="comment-time">2018-08-12 10:32</div>
-                            <h3 class="name f-toe" title="平滑细篾头层青碳化竹凉席">平滑细篾头层青碳化竹凉席</h3>
-                            <span class="price">&yen;259 </span>
-                            <p class="commnet-content f-toe">质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="hd">
-                            <a href="" target="_blank">
-                                <img class="new-pic1 " src="imgs/speak/speak1.jpg" alt="平滑细篾头层青碳化竹凉席">
-                            </a>
-                        </div>
-                        <div class="bd">
-                            <div class="user-id">1****9</div>
-                            <div class="comment-time">2018-08-12 10:32</div>
-                            <h3 class="name f-toe" title="平滑细篾头层青碳化竹凉席">平滑细篾头层青碳化竹凉席</h3>
-                            <span class="price">&yen;259 </span>
-                            <p class="commnet-content f-toe">质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="hd">
-                            <a href="" target="_blank">
-                                <img class="new-pic1 " src="imgs/speak/speak1.jpg" alt="平滑细篾头层青碳化竹凉席">
-                            </a>
-                        </div>
-                        <div class="bd">
-                            <div class="user-id">1****9</div>
-                            <div class="comment-time">2018-08-12 10:32</div>
-                            <h3 class="name f-toe" title="平滑细篾头层青碳化竹凉席">平滑细篾头层青碳化竹凉席</h3>
-                            <span class="price">&yen;259 </span>
-                            <p class="commnet-content f-toe">质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="hd">
-                            <a href="" target="_blank">
-                                <img class="new-pic1 " src="imgs/speak/speak1.jpg" alt="平滑细篾头层青碳化竹凉席">
-                            </a>
-                        </div>
-                        <div class="bd">
-                            <div class="user-id">1****9</div>
-                            <div class="comment-time">2018-08-12 10:32</div>
-                            <h3 class="name f-toe" title="平滑细篾头层青碳化竹凉席">平滑细篾头层青碳化竹凉席</h3>
-                            <span class="price">&yen;259 </span>
-                            <p class="commnet-content f-toe">质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="hd">
-                            <a href="" target="_blank">
-                                <img class="new-pic1 " src="imgs/speak/speak1.jpg" alt="平滑细篾头层青碳化竹凉席">
-                            </a>
-                        </div>
-                        <div class="bd">
-                            <div class="user-id">1****9</div>
-                            <div class="comment-time">2018-08-12 10:32</div>
-                            <h3 class="name f-toe" title="平滑细篾头层青碳化竹凉席">平滑细篾头层青碳化竹凉席</h3>
-                            <span class="price">&yen;259 </span>
-                            <p class="commnet-content f-toe">质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="hd">
-                            <a href="" target="_blank">
-                                <img class="new-pic1 " src="imgs/speak/speak1.jpg" alt="平滑细篾头层青碳化竹凉席">
-                            </a>
-                        </div>
-                        <div class="bd">
-                            <div class="user-id">1****9</div>
-                            <div class="comment-time">2018-08-12 10:32</div>
-                            <h3 class="name f-toe" title="平滑细篾头层青碳化竹凉席">平滑细篾头层青碳化竹凉席</h3>
-                            <span class="price">&yen;259 </span>
-                            <p class="commnet-content f-toe">质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="hd">
-                            <a href="" target="_blank">
-                                <img class="new-pic1 " src="imgs/speak/speak1.jpg" alt="平滑细篾头层青碳化竹凉席">
-                            </a>
-                        </div>
-                        <div class="bd">
-                            <div class="user-id">1****9</div>
-                            <div class="comment-time">2018-08-12 10:32</div>
-                            <h3 class="name f-toe" title="平滑细篾头层青碳化竹凉席">平滑细篾头层青碳化竹凉席</h3>
-                            <span class="price">&yen;259 </span>
-                            <p class="commnet-content f-toe">质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="hd">
-                            <a href="" target="_blank">
-                                <img class="new-pic1 " src="imgs/speak/speak1.jpg" alt="平滑细篾头层青碳化竹凉席">
-                            </a>
-                        </div>
-                        <div class="bd">
-                            <div class="user-id">1****9</div>
-                            <div class="comment-time">2018-08-12 10:32</div>
-                            <h3 class="name f-toe" title="平滑细篾头层青碳化竹凉席">平滑细篾头层青碳化竹凉席</h3>
-                            <span class="price">&yen;259 </span>
-                            <p class="commnet-content f-toe">质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="hd">
-                            <a href="" target="_blank">
-                                <img class="new-pic1 " src="imgs/speak/speak1.jpg" alt="平滑细篾头层青碳化竹凉席">
-                            </a>
-                        </div>
-                        <div class="bd">
-                            <div class="user-id">1****9</div>
-                            <div class="comment-time">2018-08-12 10:32</div>
-                            <h3 class="name f-toe" title="平滑细篾头层青碳化竹凉席">平滑细篾头层青碳化竹凉席</h3>
-                            <span class="price">&yen;259 </span>
-                            <p class="commnet-content f-toe">质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="hd">
-                            <a href="" target="_blank">
-                                <img class="new-pic1 " src="imgs/speak/speak1.jpg" alt="平滑细篾头层青碳化竹凉席">
-                            </a>
-                        </div>
-                        <div class="bd">
-                            <div class="user-id">1****9</div>
-                            <div class="comment-time">2018-08-12 10:32</div>
-                            <h3 class="name f-toe" title="平滑细篾头层青碳化竹凉席">平滑细篾头层青碳化竹凉席</h3>
-                            <span class="price">&yen;259 </span>
-                            <p class="commnet-content f-toe">质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="hd">
-                            <a href="" target="_blank">
-                                <img class="new-pic1 " src="imgs/speak/speak1.jpg" alt="平滑细篾头层青碳化竹凉席">
-                            </a>
-                        </div>
-                        <div class="bd">
-                            <div class="user-id">1****9</div>
-                            <div class="comment-time">2018-08-12 10:32</div>
-                            <h3 class="name f-toe" title="平滑细篾头层青碳化竹凉席">平滑细篾头层青碳化竹凉席</h3>
-                            <span class="price">&yen;259 </span>
-                            <p class="commnet-content f-toe">质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="hd">
-                            <a href="" target="_blank">
-                                <img class="new-pic1 " src="imgs/speak/speak1.jpg" alt="平滑细篾头层青碳化竹凉席">
-                            </a>
-                        </div>
-                        <div class="bd">
-                            <div class="user-id">1****9</div>
-                            <div class="comment-time">2018-08-12 10:32</div>
-                            <h3 class="name f-toe" title="平滑细篾头层青碳化竹凉席">平滑细篾头层青碳化竹凉席</h3>
-                            <span class="price">&yen;259 </span>
-                            <p class="commnet-content f-toe">质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                            </p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="hd">
-                            <a href="" target="_blank">
-                                <img class="new-pic1 " src="imgs/speak/speak1.jpg" alt="平滑细篾头层青碳化竹凉席">
-                            </a>
-                        </div>
-                        <div class="bd">
-                            <div class="user-id">1****9</div>
-                            <div class="comment-time">2018-08-12 10:32</div>
-                            <h3 class="name f-toe" title="平滑细篾头层青碳化竹凉席">平滑细篾头层青碳化竹凉席</h3>
-                            <span class="price">&yen;259 </span>
-                            <p class="commnet-content f-toe">质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="hd">
-                            <a href="" target="_blank">
-                                <img class="new-pic1 " src="imgs/speak/speak1.jpg" alt="平滑细篾头层青碳化竹凉席">
-                            </a>
-                        </div>
-                        <div class="bd">
-                            <div class="user-id">1****9</div>
-                            <div class="comment-time">2018-08-12 10:32</div>
-                            <h3 class="name f-toe" title="平滑细篾头层青碳化竹凉席">平滑细篾头层青碳化竹凉席</h3>
-                            <span class="price">&yen;259 </span>
-                            <p class="commnet-content f-toe">质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="hd">
-                            <a href="" target="_blank">
-                                <img class="new-pic1 " src="imgs/speak/speak1.jpg" alt="平滑细篾头层青碳化竹凉席">
-                            </a>
-                        </div>
-                        <div class="bd">
-                            <div class="user-id">1****9</div>
-                            <div class="comment-time">2018-08-12 10:32</div>
-                            <h3 class="name f-toe" title="平滑细篾头层青碳化竹凉席">平滑细篾头层青碳化竹凉席</h3>
-                            <span class="price">&yen;259 </span>
-                            <p class="commnet-content f-toe">质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="hd">
-                            <a href="" target="_blank">
-                                <img class="new-pic1 " src="imgs/speak/speak1.jpg" alt="平滑细篾头层青碳化竹凉席">
-                            </a>
-                        </div>
-                        <div class="bd">
-                            <div class="user-id">1****9</div>
-                            <div class="comment-time">2018-08-12 10:32</div>
-                            <h3 class="name f-toe" title="平滑细篾头层青碳化竹凉席">平滑细篾头层青碳化竹凉席</h3>
-                            <span class="price">&yen;259 </span>
-                            <p class="commnet-content f-toe">质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="hd">
-                            <a href="" target="_blank">
-                                <img class="new-pic1 " src="imgs/speak/speak1.jpg" alt="平滑细篾头层青碳化竹凉席">
-                            </a>
-                        </div>
-                        <div class="bd">
-                            <div class="user-id">1****9</div>
-                            <div class="comment-time">2018-08-12 10:32</div>
-                            <h3 class="name f-toe" title="平滑细篾头层青碳化竹凉席">平滑细篾头层青碳化竹凉席</h3>
-                            <span class="price">&yen;259 </span>
-                            <p class="commnet-content f-toe">质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                                质量很好，性价比超高，慢慢地从天猫转到网易上来了。质量很好，性价比超高，慢慢地从天猫转到网易上来了。
-                            </p>
-                        </div>
-                    </li>
                 </ul>
             </div>
         </div>

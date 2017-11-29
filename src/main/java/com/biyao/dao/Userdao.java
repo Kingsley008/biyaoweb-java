@@ -1,10 +1,9 @@
 package com.biyao.dao;
 
 import com.biyao.pojo.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -24,9 +23,39 @@ public interface Userdao {
     User findUserById(int id);
 
     /**
-     * id 更新信息ute
+     * id 更新信息
      */
     @Update(" update user set phoneNumber = #{phoneNumber}, trueName = #{trueName}, address = #{address} where id = #{id}")
     int updateUserById(@Param(value = "id") int id,@Param(value = "trueName") String trueName, @Param(value = "address") String address, @Param(value = "phoneNumber") String phoneNumber);
 
+    /*
+    * 分页查询用户信息
+    * */
+    @Select("select * from user Limit #{start}, 20")
+    ArrayList<User>showUserList(int start);
+
+    /*
+    *
+    * 更新用户信息
+    * */
+    @Results({
+            @Result(property = "id", column = "id"),
+            @Result(property = "phoneNumber", column = "phoneNumber"),
+            @Result(property = "password", column = "password"),
+            @Result(property = "trueName", column = "trueName"),
+            @Result(property = "address", column = "address"),
+            @Result(property = "type", column = "type"),
+    })
+    @Update(" update user set phoneNumber = #{phoneNumber}, trueName = #{trueName}, address = #{address}, password = #{password}, type = #{type}  where id = #{id}")
+    int updateUserInfo(User user);
+
+    /**/
+    @Select("select count(*) from user")
+    int getUserTotalRow();
+
+    /*
+    * 删除用户信息
+    * */
+    @Delete("delete from user where id = #{id}")
+    int deleteUser(int id);
 }

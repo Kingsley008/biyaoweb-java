@@ -180,72 +180,11 @@
                 </li>
             </ul>
         </div>
-        <div class="right-product-detail">
-            <dl>
-                <dt>商品名称</dt>
-                <dd>三防免烫功能牛津纺衬衫五色7087</dd>
-            </dl>
-            <dl>
-                <dt>面料成份</dt>
-                <dd>100%棉</dd>
-            </dl>
-            <dl>
-                <dt>颜色分类</dt>
-                <dd>白色 浅蓝 蓝色 灰色 藏青色</dd>
-            </dl>
-            <dl>
-                <dt>功能卖点</dt>
-                <dd> 三防是经过纳米技术处理使成衣具有防水防油防污渍的功能，结合成衣免烫处理，给您一件不易皱的防水衬衫。</dd>
-            </dl>
-            <dl>
-                <dt>洗涤说明</dt>
-                <dd>建议手洗/低温熨烫/不可漂白</dd>
-            </dl>
-            <dl>
-                <dt>温馨提示</dt>
-                <dd>衬衫成衣免烫处理与普通衬衫对比，较不易褶皱，但非完全不褶皱，正确洗涤后轻微熨烫即可恢复平整状态。</dd>
-            </dl>
-            <dl>
-                <dt>特别提示1</dt>
-                <dd>经过三防处理得面料并不影响纤维本身的特性，依然拥有良好的透气性，您可放心选购。</dd>
-            </dl>
-            <dl>
-                <dt>特别提示2</dt>
-                <dd>7087藏青色，本身颜色较深，做过免烫及三防后会有略微洗退的风格，介意者请慎重购买。</dd>
-            </dl>
-            <dl>
-                <dt>发票提供</dt>
-                <dd>EMP服饰提供电子发票，具体操作详见【售后说明】，如需要纸质发票需在备注中说明。</dd>
-            </dl>
-            <div class="img-text">
-                <p>立体裁剪 版型修身</p>
-                <img src="imgs/product/detail/pd1.jpg">
-                <p>经典商务 风格百搭</p>
-                <img src="imgs/product/detail/pd2.jpg">
-                <p>办公日常 轻松驾驭</p>
-                <img src="imgs/product/detail/pd3.jpg">
-                <p>合理版型设计凸显腰身</p>
-                <img src="imgs/product/detail/pd4.jpg">
-                <p>活插片设计领型挺括</p>
-                <img src="imgs/product/detail/pd5.jpg">
-                <p>精工细作 注重细节</p>
-                <img src="imgs/product/detail/pd6.jpg">
-                <p>三防标识 品质保障</p>
-                <img src="imgs/product/detail/pd7.jpg">
-                <p>防水演示 荷叶效应</p>
-                <img src="imgs/product/detail/pd8.jpg">
-                <img src="imgs/product/detail/pd9.jpg">
-                <p>资深监管 品质保证</p>
-                <img src="imgs/product/detail/pd10.jpg">
-                <img src="imgs/product/detail/pd11.jpg">
-                <p>试穿信息</p>
-                <img src="imgs/product/detail/pd12.jpg">
-            </div>
-
-
-        </div>
+        <div class="right-product-detail"></div>
 
     </div>
+
+</div>
 
 </div>
 <!-- 侧栏导航 -->
@@ -298,7 +237,7 @@
             $(target).parent().addClass('main-active');
             $mainPic.attr('src', imgURL);
 
-        })
+        });
         // 取到相应的款式信息
         $('.specs-style').on('click', function (e) {
             var target = e.target;
@@ -307,14 +246,14 @@
 
             var style = $(target).siblings('.material-sale').html();
 
-        })
+        });
         // 取到尺寸
         $('.specs-size').on('click', function (e) {
             var target = e.target;
             $(target).siblings().removeClass('lowModel-specs-active');
             $(target).addClass('lowModel-specs-active');
             var size = parseInt($(target).html());
-        })
+        });
         // 响应购物数量切换
         var $number = $('.panel-number');
         // 购买的数量
@@ -331,372 +270,121 @@
             }
             // console.log(num);
 
-        })
-        var templateDetail = '<div class="right-product-detail">\n' +
-                '            <dl>\n' +
-                '                <dt>商品名称</dt>\n' +
-                '                <dd>三防免烫功能牛津纺衬衫五色7087</dd>\n' +
-                '            </dl>\n' +
-                '            <dl>\n' +
-                '                <dt>面料成份</dt>\n' +
-                '                <dd>100%棉</dd>\n' +
-                '            </dl>\n' +
-                '            <dl>\n' +
-                '                <dt>颜色分类</dt>\n' +
-                '                <dd>白色 浅蓝 蓝色 灰色 藏青色</dd>\n' +
-                '            </dl>\n' +
-                '            <dl>\n' +
-                '                <dt>功能卖点</dt>\n' +
-                '                <dd> 三防是经过纳米技术处理使成衣具有防水防油防污渍的功能，结合成衣免烫处理，给您一件不易皱的防水衬衫。</dd>\n' +
-                '            </dl>\n' +
-                '            <dl>\n' +
-                '                <dt>洗涤说明</dt>\n' +
-                '                <dd>建议手洗/低温熨烫/不可漂白</dd>\n' +
-                '            </dl>\n' +
-                '            <dl>\n' +
-                '                <dt>温馨提示</dt>\n' +
-                '                <dd>衬衫成衣免烫处理与普通衬衫对比，较不易褶皱，但非完全不褶皱，正确洗涤后轻微熨烫即可恢复平整状态。</dd>\n' +
-                '            </dl>\n' +
-                '            <dl>\n' +
-                '                <dt>特别提示1</dt>\n' +
-                '                <dd>经过三防处理得面料并不影响纤维本身的特性，依然拥有良好的透气性，您可放心选购。</dd>\n' +
-                '            </dl>\n' +
-                '            <dl>\n' +
-                '                <dt>特别提示2</dt>\n' +
-                '                <dd>7087藏青色，本身颜色较深，做过免烫及三防后会有略微洗退的风格，介意者请慎重购买。</dd>\n' +
-                '            </dl>\n' +
-                '            <dl>\n' +
-                '                <dt>发票提供</dt>\n' +
-                '                <dd>EMP服饰提供电子发票，具体操作详见【售后说明】，如需要纸质发票需在备注中说明。</dd>\n' +
-                '            </dl>\n' +
-                '            <div class="img-text">\n' +
-                '                <p>立体裁剪 版型修身</p>\n' +
-                '                <img src="imgs/product/detail/pd1.jpg">\n' +
-                '                <p>经典商务 风格百搭</p>\n' +
-                '                <img src="imgs/product/detail/pd2.jpg">\n' +
-                '                <p>办公日常 轻松驾驭</p>\n' +
-                '                <img src="imgs/product/detail/pd3.jpg">\n' +
-                '                <p>合理版型设计凸显腰身</p>\n' +
-                '                <img src="imgs/product/detail/pd4.jpg">\n' +
-                '                <p>活插片设计领型挺括</p>\n' +
-                '                <img src="imgs/product/detail/pd5.jpg">\n' +
-                '                <p>精工细作 注重细节</p>\n' +
-                '                <img src="imgs/product/detail/pd6.jpg">\n' +
-                '                <p>三防标识 品质保障</p>\n' +
-                '                <img src="imgs/product/detail/pd7.jpg">\n' +
-                '                <p>防水演示 荷叶效应</p>\n' +
-                '                <img src="imgs/product/detail/pd8.jpg">\n' +
-                '                <img src="imgs/product/detail/pd9.jpg">\n' +
-                '                <p>资深监管 品质保证</p>\n' +
-                '                <img src="imgs/product/detail/pd10.jpg">\n' +
-                '                <img src="imgs/product/detail/pd11.jpg">\n' +
-                '                <p>试穿信息</p>\n' +
-                '                <img src="imgs/product/detail/pd12.jpg">\n' +
-                '            </div>\n' +
-                '\n' +
-                '\n' +
-                '        </div>';
+        });
+        // 封装
+        function showdefualt() {
+            var ids = location.search.substring(1).split('=');
+            var productId = ids[1]; // productId
+            var obj = {
+                productId: productId
+            };
+            $.ajax({
+                url: '/biyaoweb/getProductPageDetail',
+                type: 'POST',
+                data: obj,
+                success: function (data) {
+                    var templateDetail = data.productPageDetail;
+                    showTab(templateDetail);
+                    //console.log(templateDetail);
+                }
+            });
+        }
 
-/*
-        var templateComment = ' <p>商品满意度：<span class="total-eval">4.8分</span></p>\n' +
-                '            <ul>\n' +
-                '                <li class="f-cb">\n' +
-                '                    <div class="eval-user">\n' +
-                '                        <img class="user-icon" src="imgs/icon/admin.png" width="40" height="40">\n' +
-                '                        <span class="user-id">b***6</span>\n' +
-                '                    </div>\n' +
-                '                    <dl class="eval-result">\n' +
-                '                        <dt class=\'good-icon\'></dt>\n' +
-                '                        <dd>好评</dd>\n' +
-                '                    </dl>\n' +
-                '                    <div class="eval-content">\n' +
-                '                        <p>很合身，适合这个季节！</p>\n' +
-                '                    </div>\n' +
-                '                    <div class="eval-product">\n' +
-                '                        <span>2017-09-10 11:25  </span>\n' +
-                '                        <span>颜色: 蓝色</span>\n' +
-                '                        <span>尺寸: 39</span>\n' +
-                '                    </div>\n' +
-                '                </li>\n' +
-                '                <li class="f-cb">\n' +
-                '                    <div class="eval-user">\n' +
-                '                        <img class="user-icon" src="imgs/icon/admin.png" width="40" height="40">\n' +
-                '                        <span class="user-id">b***6</span>\n' +
-                '                    </div>\n' +
-                '                    <dl class="eval-result">\n' +
-                '                        <dt class=\'good-icon\'></dt>\n' +
-                '                        <dd>好评</dd>\n' +
-                '                    </dl>\n' +
-                '                    <div class="eval-content">\n' +
-                '                        <p>很合身，适合这个季节！</p>\n' +
-                '                    </div>\n' +
-                '                    <div class="eval-product">\n' +
-                '                        <span>2017-09-10 11:25  </span>\n' +
-                '                        <span>颜色: 蓝色</span>\n' +
-                '                        <span>尺寸: 39</span>\n' +
-                '                    </div>\n' +
-                '                </li>\n' +
-                '                <li class="f-cb">\n' +
-                '                    <div class="eval-user">\n' +
-                '                        <img class="user-icon" src="imgs/icon/admin.png" width="40" height="40">\n' +
-                '                        <span class="user-id">b***6</span>\n' +
-                '                    </div>\n' +
-                '                    <dl class="eval-result">\n' +
-                '                        <dt class=\'good-icon\'></dt>\n' +
-                '                        <dd>好评</dd>\n' +
-                '                    </dl>\n' +
-                '                    <div class="eval-content">\n' +
-                '                        <p>很合身，适合这个季节！</p>\n' +
-                '                    </div>\n' +
-                '                    <div class="eval-product">\n' +
-                '                        <span>2017-09-10 11:25  </span>\n' +
-                '                        <span>颜色: 蓝色</span>\n' +
-                '                        <span>尺寸: 39</span>\n' +
-                '                    </div>\n' +
-                '                </li>\n' +
-                '                <li class="f-cb">\n' +
-                '                    <div class="eval-user">\n' +
-                '                        <img class="user-icon" src="imgs/icon/admin.png" width="40" height="40">\n' +
-                '                        <span class="user-id">b***6</span>\n' +
-                '                    </div>\n' +
-                '                    <dl class="eval-result">\n' +
-                '                        <dt class=\'good-icon\'></dt>\n' +
-                '                        <dd>好评</dd>\n' +
-                '                    </dl>\n' +
-                '                    <div class="eval-content">\n' +
-                '                        <p>很合身，适合这个季节！</p>\n' +
-                '                    </div>\n' +
-                '                    <div class="eval-product">\n' +
-                '                        <span>2017-09-10 11:25  </span>\n' +
-                '                        <span>颜色: 蓝色</span>\n' +
-                '                        <span>尺寸: 39</span>\n' +
-                '                    </div>\n' +
-                '                </li>\n' +
-                '                <li class="f-cb">\n' +
-                '                    <div class="eval-user">\n' +
-                '                        <img class="user-icon" src="imgs/icon/admin.png" width="40" height="40">\n' +
-                '                        <span class="user-id">b***6</span>\n' +
-                '                    </div>\n' +
-                '                    <dl class="eval-result">\n' +
-                '                        <dt class=\'good-icon\'></dt>\n' +
-                '                        <dd>好评</dd>\n' +
-                '                    </dl>\n' +
-                '                    <div class="eval-content">\n' +
-                '                        <p>很合身，适合这个季节！</p>\n' +
-                '                    </div>\n' +
-                '                    <div class="eval-product">\n' +
-                '                        <span>2017-09-10 11:25  </span>\n' +
-                '                        <span>颜色: 蓝色</span>\n' +
-                '                        <span>尺寸: 39</span>\n' +
-                '                    </div>\n' +
-                '                </li>\n' +
-                '                <li class="f-cb">\n' +
-                '                    <div class="eval-user">\n' +
-                '                        <img class="user-icon" src="imgs/icon/admin.png" width="40" height="40">\n' +
-                '                        <span class="user-id">b***6</span>\n' +
-                '                    </div>\n' +
-                '                    <dl class="eval-result">\n' +
-                '                        <dt class=\'good-icon\'></dt>\n' +
-                '                        <dd>好评</dd>\n' +
-                '                    </dl>\n' +
-                '                    <div class="eval-content">\n' +
-                '                        <p>很合身，适合这个季节！</p>\n' +
-                '                    </div>\n' +
-                '                    <div class="eval-product">\n' +
-                '                        <span>2017-09-10 11:25  </span>\n' +
-                '                        <span>颜色: 蓝色</span>\n' +
-                '                        <span>尺寸: 39</span>\n' +
-                '                    </div>\n' +
-                '                </li>\n' +
-                '                <li class="f-cb">\n' +
-                '                    <div class="eval-user">\n' +
-                '                        <img class="user-icon" src="imgs/icon/admin.png" width="40" height="40">\n' +
-                '                        <span class="user-id">b***6</span>\n' +
-                '                    </div>\n' +
-                '                    <dl class="eval-result">\n' +
-                '                        <dt class=\'good-icon\'></dt>\n' +
-                '                        <dd>好评</dd>\n' +
-                '                    </dl>\n' +
-                '                    <div class="eval-content">\n' +
-                '                        <p>很合身，适合这个季节！</p>\n' +
-                '                    </div>\n' +
-                '                    <div class="eval-product">\n' +
-                '                        <span>2017-09-10 11:25  </span>\n' +
-                '                        <span>颜色: 蓝色</span>\n' +
-                '                        <span>尺寸: 39</span>\n' +
-                '                    </div>\n' +
-                '                </li>\n' +
-                '                <li class="f-cb">\n' +
-                '                    <div class="eval-user">\n' +
-                '                        <img class="user-icon" src="imgs/icon/admin.png" width="40" height="40">\n' +
-                '                        <span class="user-id">b***6</span>\n' +
-                '                    </div>\n' +
-                '                    <dl class="eval-result">\n' +
-                '                        <dt class=\'good-icon\'></dt>\n' +
-                '                        <dd>好评</dd>\n' +
-                '                    </dl>\n' +
-                '                    <div class="eval-content">\n' +
-                '                        <p>很合身，适合这个季节！</p>\n' +
-                '                    </div>\n' +
-                '                    <div class="eval-product">\n' +
-                '                        <span>2017-09-10 11:25  </span>\n' +
-                '                        <span>颜色: 蓝色</span>\n' +
-                '                        <span>尺寸: 39</span>\n' +
-                '                    </div>\n' +
-                '                </li>\n' +
-                '                <li class="f-cb">\n' +
-                '                    <div class="eval-user">\n' +
-                '                        <img class="user-icon" src="imgs/icon/admin.png" width="40" height="40">\n' +
-                '                        <span class="user-id">b***6</span>\n' +
-                '                    </div>\n' +
-                '                    <dl class="eval-result">\n' +
-                '                        <dt class=\'good-icon\'></dt>\n' +
-                '                        <dd>好评</dd>\n' +
-                '                    </dl>\n' +
-                '                    <div class="eval-content">\n' +
-                '                        <p>很合身，适合这个季节！</p>\n' +
-                '                    </div>\n' +
-                '                    <div class="eval-product">\n' +
-                '                        <span>2017-09-10 11:25  </span>\n' +
-                '                        <span>颜色: 蓝色</span>\n' +
-                '                        <span>尺寸: 39</span>\n' +
-                '                    </div>\n' +
-                '                </li>\n' +
-                '                <li class="f-cb">\n' +
-                '                    <div class="eval-user">\n' +
-                '                        <img class="user-icon" src="imgs/icon/admin.png" width="40" height="40">\n' +
-                '                        <span class="user-id">b***6</span>\n' +
-                '                    </div>\n' +
-                '                    <dl class="eval-result">\n' +
-                '                        <dt class=\'good-icon\'></dt>\n' +
-                '                        <dd>好评</dd>\n' +
-                '                    </dl>\n' +
-                '                    <div class="eval-content">\n' +
-                '                        <p>很合身，适合这个季节！</p>\n' +
-                '                    </div>\n' +
-                '                    <div class="eval-product">\n' +
-                '                        <span>2017-09-10 11:25  </span>\n' +
-                '                        <span>颜色: 蓝色</span>\n' +
-                '                        <span>尺寸: 39</span>\n' +
-                '                    </div>\n' +
-                '                </li>\n' +
-                '                <li class="f-cb">\n' +
-                '                    <div class="eval-user">\n' +
-                '                        <img class="user-icon" src="imgs/icon/admin.png" width="40" height="40">\n' +
-                '                        <span class="user-id">b***6</span>\n' +
-                '                    </div>\n' +
-                '                    <dl class="eval-result">\n' +
-                '                        <dt class=\'good-icon\'></dt>\n' +
-                '                        <dd>好评</dd>\n' +
-                '                    </dl>\n' +
-                '                    <div class="eval-content">\n' +
-                '                        <p>很合身，适合这个季节！</p>\n' +
-                '                    </div>\n' +
-                '                    <div class="eval-product">\n' +
-                '                        <span>2017-09-10 11:25  </span>\n' +
-                '                        <span>颜色: 蓝色</span>\n' +
-                '                        <span>尺寸: 39</span>\n' +
-                '                    </div>\n' +
-                '                </li>\n' +
-                '                <li class="f-cb">\n' +
-                '                    <div class="eval-user">\n' +
-                '                        <img class="user-icon" src="imgs/icon/admin.png" width="40" height="40">\n' +
-                '                        <span class="user-id">b***6</span>\n' +
-                '                    </div>\n' +
-                '                    <dl class="eval-result">\n' +
-                '                        <dt class=\'good-icon\'></dt>\n' +
-                '                        <dd>好评</dd>\n' +
-                '                    </dl>\n' +
-                '                    <div class="eval-content">\n' +
-                '                        <p>很合身，适合这个季节！</p>\n' +
-                '                    </div>\n' +
-                '                    <div class="eval-product">\n' +
-                '                        <span>2017-09-10 11:25  </span>\n' +
-                '                        <span>颜色: 蓝色</span>\n' +
-                '                        <span>尺寸: 39</span>\n' +
-                '                    </div>\n' +
-                '                </li>\n' +
-                '                <p class="no-more-comment">没有更多评论了</p>\n' +
-                '            </ul>\n';
-*/
+        showdefualt();
 
-        var container = $('.right-product-detail');
-        // tab页切换 先不考虑 数据请求
+
+        // tab页切换
         $('.view-title').on('click', function (e) {
             e.preventDefault();
-            var target = e.target;
-            if (target.className === 'brand') {
+            var ids = location.search.substring(1).split('=');
+            var productId = ids[1]; // productId
+            var obj = {
+                productId: productId
+            };
+            var $target = $(e.target);
+            if ($target.attr('class') === 'brand') {
                 // 进行店铺跳转
                 return
             }
-            $(target).siblings().removeClass('tab-selected');
-            $(target).addClass('tab-selected');
-            var productName = $('.product-name').text();
-            console.log(productName);
-            var obj = {
-                productName : productName
-            };
-            $.ajax({
-                url: '/biyaoweb/getComments',
-                type: 'GET',
-                data: obj,
-                success: function (data) {
-                    var list = data.commentsList;
-                    var templateComment = '<p>商品满意度：<span class= "total - eval">4.8分</span></p>'+
-                            '            <ul>\n';
-                    // TODO  动态详情页
-                    // var templateDetail
+            // 选中样式转换
+            $target.siblings().removeClass('tab-selected');
+            $target.addClass('tab-selected');
+            console.log($target.attr('data-tab'));
+            switch ($target.attr('data-tab')) {
+                case 'comment':
+                    // 请求商品评论
+                    $.ajax({
+                        url: '/biyaoweb/getComments',
+                        type: 'GET',
+                        data: obj,
+                        success: function (data) {
+                            console.log(data);
+                            var list = data.commentsList;
+                            var templateComment = '<p>商品满意度：<span class= "total - eval">4.8分</span></p>' +
+                                    '            <ul>\n';
+                            // TODO  动态详情页
+                            // var templateDetail
 
-                    list.forEach(function (value, index, p3) {
-                        mapComment = {
-                            1:'好评',
-                            2:'中评',
-                            3:'差评'
-                        };
-                        mapIcon = {
-                            1: 'good-icon',
-                            2: 'good-icon',
-                            3: 'bad-icon'
+                            list.forEach(function (value, index, p3) {
+                                mapComment = {
+                                    1: '好评',
+                                    2: '中评',
+                                    3: '差评'
+                                };
+                                mapIcon = {
+                                    1: 'good-icon',
+                                    2: 'good-icon',
+                                    3: 'bad-icon'
+                                };
+
+                                var rank = mapComment[rank];
+                                var rankIcon = mapIcon[value.rank];
+                                var temp = '                <li class="f-cb">\n' +
+                                        '                    <div class="eval-user">\n' +
+                                        '                        <img class="user-icon" src="imgs/icon/admin.png" width="40" height="40">\n' +
+                                        '                        <span class="user-id">' + value.trueName.substring(0, 1) + '***' + '</span>\n' +
+                                        '                    </div>\n' +
+                                        '                    <dl class="eval-result">\n' +
+                                        '                        <dt class="' + rankIcon + '"></dt>\n' +
+                                        '                        <dd>' + rank + '</dd>\n' +
+                                        '                    </dl>\n' +
+                                        '                    <div class="eval-content">\n' +
+                                        '                        <p>' + value.comments + '</p>\n' +
+                                        '                    </div>\n' +
+                                        '                    <div class="eval-product">\n' +
+                                        '                        <span> ' + value.buyTime + ' </span>\n' +
+                                        '                        <span>颜色: ' + value.color + '</span>\n' +
+                                        '                        <span>尺寸: ' + value.size + '</span>\n' +
+                                        '                    </div>\n' +
+                                        '                </li>\n';
+                                templateComment += temp;
+                            });
+                            templateComment += '<p class="no-more-comment">没有更多评论了</p>\n' +
+                                    '            </ul>\n';
+                            //console.log(templateComment);
+                            showTab(templateComment);
                         }
+                    });
 
-                        var rank = mapComment[value.rank];
-                        var rankIcon = mapIcon[value.rank];
-                        var temp = '                <li class="f-cb">\n' +
-                                '                    <div class="eval-user">\n' +
-                                '                        <img class="user-icon" src="imgs/icon/admin.png" width="40" height="40">\n' +
-                                '                        <span class="user-id">' + value.trueName.substring(0, 1) + '***' + '</span>\n' +
-                                '                    </div>\n' +
-                                '                    <dl class="eval-result">\n' +
-                                '                        <dt class="'+ rankIcon +'"></dt>\n' +
-                                '                        <dd>'+ rank +'</dd>\n' +
-                                '                    </dl>\n' +
-                                '                    <div class="eval-content">\n' +
-                                '                        <p>' + value.comments + '</p>\n' +
-                                '                    </div>\n' +
-                                '                    <div class="eval-product">\n' +
-                                '                        <span> ' + value.buyTime + ' </span>\n' +
-                                '                        <span>颜色: ' + value.color + '</span>\n' +
-                                '                        <span>尺寸: ' + value.size + '</span>\n' +
-                                '                    </div>\n' +
-                                '                </li>\n';
-                        templateComment += temp;
-                    })
-                    templateComment += '<p class="no-more-comment">没有更多评论了</p>\n' +
-                    '            </ul>\n';
+                    break;
+                case 'detail':
+                    $.ajax({
+                        url: '/biyaoweb/getProductPageDetail',
+                        type: 'POST',
+                        data: obj,
+                        success: function (data) {
+                            var templateDetail = data.productPageDetail;
+                            showTab(templateDetail);
+                            //console.log(templateDetail);
+                        }
+                    });
 
-                    var template = {
-                        detail: templateDetail,
-                        comment: templateComment,
-                    };
-
-                    showTab(template[$(target).attr('data-tab')])
-                }
-            })
-
-
+            }
         });
 
+
         function showTab(template) {
+            var container = $('.right-product-detail');
             container.html('');
             container.html(template);
         }

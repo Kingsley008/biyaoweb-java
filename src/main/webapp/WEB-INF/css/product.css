@@ -318,13 +318,15 @@ li {
 .right-product-detail {
     overflow: hidden;
     padding: 20px;
+
 }
 
 .right-product-detail>p {
     font-size: 18px;
     border-bottom: 1px solid #ccc;
     margin-bottom: 10px;
-    padding: 20px 0px;
+    padding: 20px 0;
+    text-align: center;
 
 }
 

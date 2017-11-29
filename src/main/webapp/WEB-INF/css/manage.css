@@ -60,8 +60,8 @@ table{
     position: absolute;
     z-index: 999;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    transform: translate(-50%, 0);
 }
 .product-detail {
     background-color: #f5f5f5;
@@ -111,3 +111,34 @@ table{
     border: 1px solid #000;
 }
 /* 提示信息 控件 结束 */
+
+/* 分页 控件 */
+
+.pageHanlder {
+    text-align: center;
+}
+.pageHanlder li {
+    display:  inline-block;
+    font-size: 14px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* 分页 控件结束 */
+form input {
+    width: 400px;
+}
+form textarea {
+    width: 400px;
+}
+
+.addNewBtn {
+    width: 100px;
+    height: 30px;
+    background-color: #f7b200;
+    color: white;
+    display: block;
+    margin: 10px auto;
+    border: none;
+
+}

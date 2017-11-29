@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/manage.css">
 </head>
-<body>
+<body class="body">
 <div class="left-aside-nav">
     <ul class="nav-container">
         <li class="slider nav-selected">图片轮播管理</li>
@@ -118,6 +118,7 @@
 
 </div>
 </body>
+<script type="text/javascript" src="js/md5.js"></script>
 <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 <script src="js/notice.js"></script>
 <script src="js/manage.js"></script>

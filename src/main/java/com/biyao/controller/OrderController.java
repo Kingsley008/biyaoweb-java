@@ -6,9 +6,11 @@ import com.biyao.dao.Userdao;
 import com.biyao.pojo.ProductOrderList;
 import com.biyao.pojo.User;
 import com.biyao.service.ProductService;
+import com.biyao.util.XSSEnode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +26,7 @@ import java.util.List;
 /**
  * Created by ASUS on 2017/9/24.
  */
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @Controller
 public class OrderController {
     @Autowired
@@ -38,7 +41,7 @@ public class OrderController {
     * JSON接口 返回当前用户的已经订购的商品信息 JSON
     *
     * */
-    @RequestMapping(value = "/getOrderList", produces = "application/json")
+    @RequestMapping(value = "/getOrderList", produces = "application/json" ,method = RequestMethod.GET)
     public String showNewProduct(ModelMap map, HttpSession session, HttpServletRequest request) throws IOException {
         User user = (User)session.getAttribute("user");
         Boolean b = false;
@@ -56,26 +59,26 @@ public class OrderController {
 
         // 通过userId 取到 当前用户的订单
 
-        return "index";
+        return "alterOderInfo";
     }
 
     /*
     * 用户添加评论
     * */
-    @RequestMapping(value = "/addComment")
+    @RequestMapping(value = "/addComment",method = RequestMethod.GET)
     public String addComment(ModelMap map, HttpSession session, HttpServletRequest request) throws IOException {
         User user = (User)session.getAttribute("user");
         int id = Integer.parseInt(request.getParameter("id"));
-        String comments = request.getParameter("comments");
+        String comments = XSSEnode.xssEncode(request.getParameter("comments"));
         int rank = Integer.parseInt(request.getParameter("rank"));
-    //    System.out.print(id + comments + rank);
+
         orderdao.updateComment(id, comments,rank);
         return "index";
     }
     /*
     * 展示评论
     * */
-    @RequestMapping(value = "/showComments", produces = "application/json")
+    @RequestMapping(value = "/showComments", produces = "application/json",method = RequestMethod.GET)
     public String showComment(ModelMap map, HttpSession session, HttpServletRequest request) throws IOException {
         ArrayList arr =  orderdao.showComments();
         map.addAttribute("commentsList", arr);
@@ -84,22 +87,35 @@ public class OrderController {
     /*
     * 详情页评论展示
     * */
-    @RequestMapping(value = "/getComments", produces = "application/json")
+    @RequestMapping(value = "/getComments", produces = "application/json",method = RequestMethod.GET)
     public String getCommentByProductName(ModelMap map, HttpSession session, HttpServletRequest request) throws IOException {
-        String productName = request.getParameter("productName");
-        ArrayList arr =  orderdao.getComments(productName);
+        int productId = Integer.parseInt(request.getParameter("productId"));
+        ArrayList arr =  orderdao.getComments(productId);
         map.addAttribute("commentsList", arr);
         return "index";
     }
 
+    /*
+    * 通过id查询商品 详情页
+    * */
+    @RequestMapping(value = "/getProductPageDetail", produces = "application/json",method = RequestMethod.GET)
+    public String getDatailByProductName(ModelMap map, HttpSession session, HttpServletRequest request) throws IOException {
+        int productId = Integer.parseInt(request.getParameter("productId"));
+        String productPageDetail = productdao.showProductPageDetail(productId);
+        System.out.print(productPageDetail);
+        map.addAttribute("productPageDetail", productPageDetail);
+        return "";
+    }
 
-    @RequestMapping(value = "/alterOderInfo", produces ="application/json")
+
+
+    @RequestMapping(value = "/alterOderInfo", produces ="application/json",method = RequestMethod.GET)
     public String alterOderInfo(ModelMap map, HttpSession session, HttpServletRequest request) throws IOException {
         User user = (User)session.getAttribute("user");
         String newAddress = request.getParameter("address");
         String newName = request.getParameter("trueName");
         String newPhoneNumber = request.getParameter("phoneNumber");
-        System.out.print(newAddress + newName + newPhoneNumber);
+        System.out.println(newAddress + newName + newPhoneNumber);
         userdao.updateUserById(user.getId(),newName, newAddress, newPhoneNumber);
         User newUser = userdao.findUserById(user.getId());
         session.setAttribute("user", newUser);
@@ -115,10 +131,14 @@ public class OrderController {
     // @RequestBody List<> products 接受json数据 记录每一个商品的  contentId name color size buyNum
     // 从 session 中的user 得到 truename  userId
     // service 处理 当前date
-    @RequestMapping(value = "/buy" ,produces="application/json",method= RequestMethod.POST)
+    @RequestMapping(value = "/buy" ,produces="application/json",method = RequestMethod.POST)
     public String checkBuy(@RequestBody List<ProductOrderList> productOrderList, ModelMap map, HttpServletResponse response, HttpSession session, HttpServletRequest request) throws IOException, ServletException {
         //涉及到了事务的管理
+        System.out.println(productOrderList);
         User user = (User) session.getAttribute("user");
+        System.out.println(user);
+        user = (User)session.getAttribute("user");
+        System.out.println(user.getAddress());
         int i = productService.dealOrder(user,productOrderList);
         boolean b =  false;
         System.out.print(productOrderList);
@@ -134,7 +154,7 @@ public class OrderController {
 
     }
 
-    @RequestMapping(value = "/success")
+    @RequestMapping(value = "/success",method = RequestMethod.GET)
     public String showSuccess(ModelMap map, HttpSession session) throws IOException {
         User user = (User)session.getAttribute("user");
         if(user != null){

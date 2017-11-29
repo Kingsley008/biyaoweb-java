@@ -26,9 +26,9 @@
     <form class="login-form" method="post" action="" autocomplete="off">
         <h3>用户登录</h3>
         <i class="phone-warn"></i>
-        <input class="phoneNum" placeholder="请输入手机号" data-type = "phone" autocomplete="off">
+        <input class="phoneNum"   placeholder="请输入手机号" data-type = "phone" autocomplete="off">
         <i class="password-warn"></i>
-        <input class="password" type="password" placeholder="请输入登录密码" data-type = "password" autocomplete="off">
+        <input class="password"  type="password" placeholder="请输入登录密码" data-type = "password" autocomplete="off">
         <input  type="checkbox" class="autologin" id="auto-login" value="1"><label for="auto-login">下次自动登录</label>
         <button class="loginBtn" type="submit" >登 录</button>
     </form>
