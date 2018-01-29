@@ -27,7 +27,6 @@
         }
         .comment-submit {
         }
-
     </style>
 </head>
 <body>
@@ -96,7 +95,7 @@
                     commentBtn  = '<span class="comment-btn ff6600">已评论</span>';
                 }
 
-                var singleTable  = '    <table class="settlement-table settlement-table'+ number + ' ">\n' +
+                var singleTable  = '<table class="settlement-table settlement-table'+ number + ' ">\n' +
                         '        <tbody>\n' +
                         '        <tr >\n' +
                         '            <td width="40%">\n' +

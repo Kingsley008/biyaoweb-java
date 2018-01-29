@@ -39,7 +39,7 @@
 
             function initSliderInfo() {
                 $.ajax({
-                    url: '/biyaoweb/showSlider',
+                    url: '  /biyaoweb/showSlider',
                     type: 'POST',
                     data:null,
                     success: function (data) {
@@ -401,7 +401,6 @@
                            user.type = $tr.find('.type').val();
                            user.trueName = $tr.find('.trueName').val();
                            user.id = $tr.find('.id').html();
-
 
                            $.ajax({
                                url: '/biyaoweb/updateUser',

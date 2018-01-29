@@ -3,16 +3,20 @@ package com.biyao.controller;
 import com.biyao.dao.Userdao;
 import com.biyao.pojo.User;
 import com.biyao.service.UserService;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.net.CookiePolicy;
+import java.net.URLEncoder;
+
 
 /**
  * Created by ASUS on 2017/9/19.
@@ -54,6 +58,17 @@ public class UserController {
     @RequestMapping(value = "/checklogin", produces = "application/json")
     public String dealLogin(ModelMap map, HttpSession session, HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User)session.getAttribute("user");
+        Cookie[] cookies = request.getCookies();//这样便可以获取一个cookie数组
+        ObjectMapper mapper = new ObjectMapper();
+//        for(Cookie cookie : cookies){
+//            // get the cookie name
+//            if(cookie.getName().equals("user")){
+//                String json =  cookie.getValue();
+//                User u= mapper.readValue(json, User.class);
+//            };
+//            // get the cookie value
+//        }
+        System.out.println(user);
         if(user != null){
             // 已经登入
             map.addAttribute("user", user);
@@ -62,14 +77,18 @@ public class UserController {
             String phoneNumber = request.getParameter("username");
             String password = request.getParameter("password");
             boolean ret = userService.checkUser(phoneNumber,password);
-            System.out.print(phoneNumber+password+"ret"+ret);
+            System.out.println( phoneNumber+ password + ret);
             if (ret) {
-                //TODO 将用户加入cookie 返回 再加一个接口/user 查询cookie中的user
                 user = userService.getUser();
-                System.out.println( "address"+ user.getAddress());
+                String json = mapper.writeValueAsString(user);
+                String _json = URLEncoder.encode(json, "UTF-8");
+                Cookie cookie = new Cookie("user",_json);
+                System.out.println("json" + _json);
+                cookie.setMaxAge(3600000);
+                cookie.setPath("/");
+                response.addCookie(cookie);
                 session.setAttribute("user", user);
                 user = (User)session.getAttribute("user");
-                System.out.println(user.getAddress());
                 map.addAttribute("result", 1);
                 map.addAttribute("success",true);
                 map.addAttribute("user",user);

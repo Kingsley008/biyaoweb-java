@@ -11,14 +11,6 @@ public class User {
    private String trueName;
    private int type;
 
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -27,6 +19,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", address='" + address + '\'' +
                 ", trueName='" + trueName + '\'' +
+                ", type=" + type +
                 '}';
     }
 
@@ -69,4 +62,15 @@ public class User {
     public void setTrueName(String trueName) {
         this.trueName = trueName;
     }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
 }
+
+
+

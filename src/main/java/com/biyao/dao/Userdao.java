@@ -16,6 +16,13 @@ public interface Userdao {
     @Insert("insert into user values(0,#{phoneNumber},#{password},#{trueName},#{address},0)")
     int addUser(@Param(value = "phoneNumber")String phoneNumber, @Param(value = "password")String password, @Param(value = "address")String address,
                       @Param(value = "trueName")String trueName);
+
+    /**
+     * 管理员添加新用户
+     */
+    @Insert("insert into user values(0,#{phoneNumber},#{password},#{trueName},#{address},#{type})")
+    int addUserAdmin(User user);
+
     /**
      * id查询用户
      */
@@ -31,11 +38,10 @@ public interface Userdao {
     /*
     * 分页查询用户信息
     * */
-    @Select("select * from user Limit #{start}, 20")
+    @Select("select * from user Limit #{start}, 10")
     ArrayList<User>showUserList(int start);
 
     /*
-    *
     * 更新用户信息
     * */
     @Results({

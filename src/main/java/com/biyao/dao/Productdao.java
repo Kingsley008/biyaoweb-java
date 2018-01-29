@@ -78,7 +78,6 @@ public interface Productdao {
             @Result(property = "sizes", column = "sizes"),
             @Result(property = "colors", column = "colors"),
             @Result(property = "text", column = "text")
-
     })
     @Select("select * from content where id = #{id} ")
     ProductDetail showProductDetail(@Param(value = "id") int id);
@@ -105,12 +104,14 @@ public interface Productdao {
             @Result(property = "text", column = "text")
 
     })
-
+    /*
+    * @Param(value = "id") int id,@Param(value = "produceDate") int produceDate , @Param(value = "intro") String intro,@Param(value = "price") long price,
+                                      @Param(value = "imgs") String imgs,@Param(value = "name") String name, @Param(value = "sizes") String sizes, @Param(value = "colors") String colors,
+                                      @Param(value = "text") String text,@Param(value = "icon") String icon
+    */
     @Select("update content set produceDate = #{produceDate},intro = #{intro}, price = #{price}," +
             " imgs = #{imgs}, name =#{name}, sizes = #{sizes}, colors = #{colors}, text = #{text}, icon = #{icon} where id = #{id} ")
-    String updateProductDetail(@Param(value = "id") int id,@Param(value = "produceDate") int produceDate , @Param(value = "intro") String intro,@Param(value = "price") long price,
-                                      @Param(value = "imgs") String imgs,@Param(value = "name") String name, @Param(value = "sizes") String sizes, @Param(value = "colors") String colors,
-                                      @Param(value = "text") String text,@Param(value = "icon") String icon);
+    String updateProductDetail(ProductDetail productDetail);
 
     /*
     * 得到分类的子分类
@@ -126,16 +127,46 @@ public interface Productdao {
     *  商品粗略信息 通过id再展现详细信息的CRUD
     * */
     @Results({
-
             @Result(property = "id", column = "id"),
             @Result(property = "price", column = "price"),
             @Result(property = "icon", column = "icon"),
             @Result(property = "name", column = "name")
-
-
     })
-    @Select("select * from content LIMIT #{start},20 ")
+    @Select("select * from content LIMIT #{start},10 ")
     ArrayList<ProductList> showTenProductList(@Param(value = "start") int start);
+
+    /*
+    * 通过检索得到分类信息
+    * */
+    @Select("select distinct catagory from content ")
+    ArrayList<String> getCategory();
+
+    /*
+     * 通过检索得到子分类信息
+     * */
+    @Select("select distinct subCatagory from content where catagory = #{catagory} ")
+    ArrayList<String> getSubCategory(@Param(value = "catagory") String catagory);
+
+    /*
+    * 通过分类检索productList
+    * */
+    @Select("select * from content LIMIT #{start},10")
+    ArrayList<ProductList> getAllProductList(@Param(value = "start") int start);
+
+    @Select("select * from content where catagory = #{category} LIMIT #{start},10")
+    ArrayList<ProductList> getProductListByCategory(@Param(value = "category") String category,
+                                                    @Param(value = "start") int start);
+
+    @Select("select * from content where catagory = #{category} and subCatagory = #{subCatagory} LIMIT #{start},10")
+    ArrayList<ProductList> getProductListByCategoryAndSubCategory(@Param(value = "category") String category,
+                                                                  @Param(value = "start") int start,
+                                                                  @Param(value = "subCatagory") String subCatagory);
+
+    @Select("select count(*) from content where catagory = #{category}")
+    int getProductListRowsByCategory(@Param(value = "category") String category);
+
+    @Select("select count(*) from content where catagory = #{catagory} and subCatagory = #{subCatagory}")
+    int getProductListRowsByCategoryAndSub(@Param(value = "catagory") String category, @Param(value = "subCatagory") String subCatagory);
 
     @Select("select count(*) from content")
     int getTotalRow();
@@ -145,16 +176,7 @@ public interface Productdao {
     int deleteProduct(int id);
 
 
-
     /*添加商品*/
-    /*男装测试数据
-    INSERT INTO content (id, name ,produceDate ,intro, catagory,subCatagory, sizes, newicon, colors, price, icon, imgs, text) VALUES
- (0, "净色小肌理免烫衬衫3005",7,"纯棉免烫衬衫 抗皱性强 易打理","男装","衬衫",
-         "38;39;40;41;42;43;44", "1","蓝色;白色",
-         245,"imgs/show/showsmall.jpg","imgs/product/p1.jpg;imgs/product/p2.jpg;imgs/product/p3.jpg;imgs/product/p4.jpg;imgs/product/p5.jpg",
-    NULL);*/
-
-
     @Results({
             @Result(property = "id", column = "id"),
             @Result(property = "produceDate", column = "produceDate"),
@@ -165,10 +187,13 @@ public interface Productdao {
             @Result(property = "sizes", column = "sizes"),
             @Result(property = "colors", column = "colors"),
             @Result(property = "text", column = "text")
-
     })
+
     @Insert("insert into content values (0, #{name}, #{produceDate}, #{intro}, #{catagory},#{subCatagory},#{sizes}," +
             "#{newicon}, #{colors}, #{price}, #{icon}, #{imgs}, #{text})")
     int addNewProduct(ProductDetail productDetail);
+
+
+
 
 }

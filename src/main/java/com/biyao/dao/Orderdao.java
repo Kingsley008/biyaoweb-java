@@ -1,6 +1,4 @@
 package com.biyao.dao;
-
-import com.biyao.pojo.ProductDetail;
 import com.biyao.pojo.TrxInfobean;
 import org.apache.ibatis.annotations.*;
 
@@ -59,7 +57,6 @@ public interface Orderdao {
     ArrayList<TrxInfobean> showComments();
 
     /* 展示评论*/
-        /* 显示当前用户已经下单的产品 */
     @Results({
             @Result(property="id", column="id"),
             @Result(property="contentId", column=" contentId"),
@@ -79,4 +76,25 @@ public interface Orderdao {
 
     @Select("select * from trx  where contentId = #{id} order by id desc LIMIT 20" )
     ArrayList<TrxInfobean> getComments(int id);
+
+
+    /*
+    * 根据电话号码检索
+    * */
+
+    @Select(" select count(*) from trx where phoneNumber = #{phoneNumber}")
+    int  getOrderListCount(@Param(value = "phoneNumber")String phoneNumber);
+
+    @Select("select * from trx where phoneNumber = #{phoneNumber} LIMIT #{start},10 " )
+    ArrayList<TrxInfobean> getOrderListByPhoneNumber(@Param(value = "phoneNumber")String phoneNumber,@Param(value = "start") int start);
+
+    /* 根据id 删除订单*/
+    @Delete("delete from trx where id = #{id}")
+    int deleteOrder(int id);
+
+    /* 更新一个订单*/
+    @Select("update trx set trueName = #{trueName},buyNumber = #{buyNumber}, price = #{price}," +
+            " size = #{size}, color = #{color}, address = #{address} where id = #{id} ")
+    String updateProductDetail(TrxInfobean trxInfobean);
+
 }

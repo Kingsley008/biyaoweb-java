@@ -47,18 +47,19 @@ public class ProductService {
             trx.setSize(list.getSize());
             trx.setProductName(list.getName());
             trx.setBuyNumber(list.getBuyNumber());
-
             trx.setAddress(user.getAddress());
             trx.setBuyNumber(list.getBuyNumber());
             trx.setTrueName(user.getTrueName());
             trx.setUserId(user.getId());
+            trx.setPhoneNumber(user.getPhoneNumber());
+
             Date date = new Date();//得到系统时间
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//小写的mm表示的是分钟  
             String goodsC_date = sdf.format(date);//转换时间的格式
             trx.setBuyTime(goodsC_date);
             arr.add(trx);
         }
-        String sql = "insert into trx values (0,?,?,?,?,?,?,?,?,?,null,null,?,?)";
+        String sql = "insert into trx values (0,?,?,?,?,?,?,?,?,?,null,null,?,?,?,)";
         //通过内部类创建批处理对象
         BatchPreparedStatementSetter bts = new BatchPreparedStatementSetter() {
             @Override
@@ -75,6 +76,7 @@ public class ProductService {
                 ps.setInt(9, arr.get(i).getBuyNumber());
                 ps.setString(10, arr.get(i).getIcon());
                 ps.setString(11, arr.get(i).getProductName());
+                ps.setString(12,arr.get(i).getPhoneNumber());
             }
             @Override
             public int getBatchSize() {

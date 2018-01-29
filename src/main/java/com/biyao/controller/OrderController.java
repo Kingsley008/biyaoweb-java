@@ -115,7 +115,7 @@ public class OrderController {
         String newAddress = request.getParameter("address");
         String newName = request.getParameter("trueName");
         String newPhoneNumber = request.getParameter("phoneNumber");
-        System.out.println(newAddress + newName + newPhoneNumber);
+
         userdao.updateUserById(user.getId(),newName, newAddress, newPhoneNumber);
         User newUser = userdao.findUserById(user.getId());
         session.setAttribute("user", newUser);
@@ -133,15 +133,13 @@ public class OrderController {
     // service 处理 当前date
     @RequestMapping(value = "/buy" ,produces="application/json",method = RequestMethod.POST)
     public String checkBuy(@RequestBody List<ProductOrderList> productOrderList, ModelMap map, HttpServletResponse response, HttpSession session, HttpServletRequest request) throws IOException, ServletException {
-        //涉及到了事务的管理
-        System.out.println(productOrderList);
+
         User user = (User) session.getAttribute("user");
-        System.out.println(user);
         user = (User)session.getAttribute("user");
         System.out.println(user.getAddress());
         int i = productService.dealOrder(user,productOrderList);
         boolean b =  false;
-        System.out.print(productOrderList);
+
         int code = response.getStatus();
         if(code > 0){
             b = true;

@@ -20,6 +20,11 @@ public class TrxInfobean {
     private String icon;
     private String productName;
     private int rank;
+    private String phoneNumber;
+
+    public String getPhoneNumber(){return  phoneNumber;}
+
+    public void setPhoneNumber(String phoneNumber){this.phoneNumber = phoneNumber;}
 
     public int getRank() {
         return rank;

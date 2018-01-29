@@ -53,7 +53,7 @@ newicon int comment "1新品",
 colors varchar(100) comment "可选颜色;分割",
 price bigint  comment "当前价格",
 icon varchar(300) comment "封面图片",
-imgs VARCHAR (300) comment "全部的展示图片",
+imgs VARCHAR (600) comment "全部的展示图片",
 text LONGTEXT comment "详情页html内容"
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
@@ -61,7 +61,7 @@ text LONGTEXT comment "详情页html内容"
 INSERT INTO content (id, name ,produceDate ,intro, catagory,subCatagory, sizes, newicon, colors, price, icon, imgs, text) VALUES
  (0, "净色小肌理免烫衬衫3005",7,"纯棉免烫衬衫 抗皱性强 易打理","男装","衬衫",
  "38;39;40;41;42;43;44", "1","蓝色;白色",
- 245,"imgs/show/show-small.jpg","imgs/product/p1.jpg;imgs/product/p2.jpg;imgs/product/p3.jpg;imgs/product/p4.jpg;imgs/product/p5.jpg",
+ 245,"imgs/show/show-small.jpg","http://localhost:8080/biyaoweb/imgs/product/p1.jpg;imgs/product/p2.jpg;imgs/product/p3.jpg;imgs/product/p4.jpg;imgs/product/p5.jpg",
 NULL);
 
 
@@ -91,7 +91,8 @@ buyNumber int comment"购买数量",
 rank int comment "1:好评 ；2：中评3：差评" DEFAULT NULL,
 comments varchar(1500) comment "评论内容" DEFAULT NULL,
 icon VARCHAR (100),
-productName VARCHAR (100)
+productName VARCHAR (100),
+phoneNumber varchar(100) comment "用户手机号"
 )
 ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 

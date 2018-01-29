@@ -4,6 +4,7 @@ import com.biyao.dao.Productdao;
 import com.biyao.dao.Userdao;
 import com.biyao.pojo.*;
 import com.biyao.service.ProductService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +34,7 @@ public class PageViewController {
     private ProductService productService;
     @Autowired
     Userdao userdao;
+
     /**
      * 查询轮播投图的信息返回首页
     **/
@@ -65,14 +68,18 @@ public class PageViewController {
         map.addAttribute("sliderList",sliderList);
         // 通过cookie中的userId 查询U
         Cookie[] cookies = request.getCookies();//这样便可以获取一个cookie数组
-//        for(Cookie cookie : cookies){
-//            if(cookie.getName().equals("userId")){
-//                int userId =  Integer.parseInt(cookie.getValue());
-//                user = userdao.findUserById(userId);
-//                session.setAttribute("user",user);
-//            }
-//
-//        }
+        for(Cookie cookie : cookies){
+            if(cookie.getName().equals("user")){
+                String json =  URLDecoder.decode(cookie.getValue(),"UTF-8");
+                ObjectMapper mapper = new ObjectMapper();
+                user = mapper.readValue(json, User.class);
+                System.out.println("cookie" + user);
+            }
+        }
+
+        session.setAttribute("user",user);
+        user = (User)session.getAttribute("user");
+        System.out.println(user);
 
         if(user != null){
             map.addAttribute("user", user);
@@ -250,18 +257,23 @@ public class PageViewController {
         return "login";
     }
 
-    @RequestMapping(value = "/logout")
-    public String dealLogout(ModelMap map, HttpSession session, HttpServletRequest request) throws IOException {
-        User user = (User) session.getAttribute("user");
-        int id = user.getId();
+    @RequestMapping(value = "/logout" , produces = "application/json")
+    public String dealLogout(ModelMap map, HttpSession session, HttpServletRequest request, HttpServletResponse response) throws IOException {
+//        User user = (User) session.getAttribute("user");
+//        int id = user.getId();
         session.removeAttribute("user");
         Cookie[] cookies = request.getCookies();//这样便可以获取一个cookie数组
         for(Cookie cookie : cookies){
-            if(cookie.getName().equals("userId")){
+            if(cookie.getName().equals("user")){
                 cookie.setMaxAge(0);
+                cookie.setDomain("/");
+                cookie.setPath("/");
+                response.addCookie(cookie);
             }
-
         }
+        System.out.print("logout");
+        String message = "1";
+        map.addAttribute(message);
         return "login";
     }
 
