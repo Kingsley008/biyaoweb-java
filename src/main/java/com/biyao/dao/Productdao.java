@@ -12,6 +12,7 @@ import java.util.List;
 /**
  * Created by ASUS on 2017/9/15.
  */
+
 public interface Productdao {
     /**
      * 得到首页投图信息
@@ -37,8 +38,6 @@ public interface Productdao {
     /**
      * 通过一个商品的分类,得到一组商品的展示信息
      *
-     * @param
-     * @return
      */
     @Results({
             @Result(property = "id", column = "id"),
@@ -193,7 +192,24 @@ public interface Productdao {
             "#{newicon}, #{colors}, #{price}, #{icon}, #{imgs}, #{text})")
     int addNewProduct(ProductDetail productDetail);
 
+    /* 首页新品展示 */
+    @Results({
+            @Result(property = "id", column = "id"),
+            @Result(property = "price", column = "price"),
+            @Result(property = "icon", column = "icon"),
+            @Result(property = "name", column = "name"),
+    })
+    @Select("select * from content order by id desc LIMIT 24 ")
+    List<ProductList> showNewList();
 
+    /* 搜索模糊匹配 */
+    @Results({
+            @Result(property = "id", column = "id"),
+            @Result(property = "price", column = "price"),
+            @Result(property = "icon", column = "icon"),
+            @Result(property = "name", column = "name"),
+    })
 
-
+    @Select("select * from content where name like '%${name}%'")
+    List<ProductList> showSearchList(@Param(value = "")String name);
 }

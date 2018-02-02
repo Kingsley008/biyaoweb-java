@@ -44,6 +44,7 @@ public class OrderController {
     @RequestMapping(value = "/getOrderList", produces = "application/json" ,method = RequestMethod.GET)
     public String showNewProduct(ModelMap map, HttpSession session, HttpServletRequest request) throws IOException {
         User user = (User)session.getAttribute("user");
+        System.out.println(user);
         Boolean b = false;
         if(user == null){
 
@@ -136,7 +137,7 @@ public class OrderController {
 
         User user = (User) session.getAttribute("user");
         user = (User)session.getAttribute("user");
-        System.out.println(user.getAddress());
+
         int i = productService.dealOrder(user,productOrderList);
         boolean b =  false;
 

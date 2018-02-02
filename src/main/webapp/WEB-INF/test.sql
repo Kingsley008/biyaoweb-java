@@ -1,4 +1,5 @@
 /* 投图 限制6张 */
+drop table sliders;
 CREATE  TABLE  sliders (
 id int auto_increment primary key comment "主键",
 productName  VARCHAR (100) comment "商品名称",
@@ -6,12 +7,12 @@ pageURL VARCHAR (100) comment "silderURL",
 imgURL VARCHAR (100) comment  "imageURL")
 ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-insert into sliders (id,productName, pageURL, imgURL) VALUES (1,NULL ,NULL ,'imgs/banner/banner1.jpg');
-insert into sliders (id,productName, pageURL, imgURL) VALUES (2,NULL ,NULL ,'imgs/banner/banner2.jpg');
-insert into sliders (id,productName, pageURL, imgURL) VALUES (3,NULL ,NULL ,'imgs/banner/banner3.jpg');
-insert into sliders (id,productName, pageURL, imgURL) VALUES (4,NULL ,NULL ,'imgs/banner/banner4.jpg');
-insert into sliders (id,productName, pageURL, imgURL) VALUES (5,NULL ,NULL ,'imgs/banner/banner5.jpg');
-insert into sliders (id,productName, pageURL, imgURL) VALUES (6,NULL ,NULL ,'imgs/banner/banner6.jpg');
+insert into sliders (id,productName, pageURL, imgURL) VALUES (1,NULL ,'/product/36' ,'http://localhost:8080/biyaoweb/imgs/banner/banner1.jpg');
+insert into sliders (id,productName, pageURL, imgURL) VALUES (2,NULL ,'/product/38' ,'http://localhost:8080/biyaoweb/imgs/banner/banner2.jpg');
+insert into sliders (id,productName, pageURL, imgURL) VALUES (3,NULL ,'/product/60' ,'http://localhost:8080/biyaoweb/imgs/banner/banner3.jpg');
+insert into sliders (id,productName, pageURL, imgURL) VALUES (4,NULL ,'/product/62' ,'http://localhost:8080/biyaoweb/imgs/banner/banner4.jpg');
+insert into sliders (id,productName, pageURL, imgURL) VALUES (5,NULL ,'/product/61' ,'http://localhost:8080/biyaoweb/imgs/banner/banner5.jpg');
+insert into sliders (id,productName, pageURL, imgURL) VALUES (6,NULL ,'/product/46' ,'http://localhost:8080/biyaoweb/imgs/banner/banner6.jpg');
 
 create table person(
 id int auto_increment primary key comment "主键",

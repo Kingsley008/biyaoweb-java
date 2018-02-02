@@ -52,14 +52,14 @@ public class ProductService {
             trx.setTrueName(user.getTrueName());
             trx.setUserId(user.getId());
             trx.setPhoneNumber(user.getPhoneNumber());
-
+            System.out.println(list.getProductId());
             Date date = new Date();//得到系统时间
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//小写的mm表示的是分钟  
             String goodsC_date = sdf.format(date);//转换时间的格式
             trx.setBuyTime(goodsC_date);
             arr.add(trx);
         }
-        String sql = "insert into trx values (0,?,?,?,?,?,?,?,?,?,null,null,?,?,?,)";
+        String sql = "insert into trx values (0,?,?,?,?,?,?,?,?,?,null,null,?,?,?)";
         //通过内部类创建批处理对象
         BatchPreparedStatementSetter bts = new BatchPreparedStatementSetter() {
             @Override

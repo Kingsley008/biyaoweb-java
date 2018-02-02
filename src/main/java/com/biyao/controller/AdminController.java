@@ -305,14 +305,14 @@ public class AdminController {
     public String deleteOrder(ModelMap map,HttpServletRequest request){
         int id = Integer.parseInt(request.getParameter("id"));
         int ret = orderdao.deleteOrder(id);
-        System.out.println(ret);
+
         map.addAttribute("message","ok");
         return "";
     }
     // 更新订单
     @RequestMapping(value = "/updateOrder",produces = "application/json")
     public String updateOrder(ModelMap map,HttpServletRequest request,@RequestBody TrxInfobean trxInfobean){
-        System.out.print(trxInfobean);
+
         String ret = orderdao.updateProductDetail(trxInfobean);
         map.addAttribute("message","ok");
         return "";

@@ -37,51 +37,51 @@ public class PageViewController {
 
     /**
      * 查询轮播投图的信息返回首页
-    **/
+     **/
     @RequestMapping(value = "/index")
     public String showIndex(ModelMap map, HttpSession session, HttpServletRequest request) throws IOException {
         ArrayList<IndexSlider> sliderList = (ArrayList<IndexSlider>) productdao.getSliderInfo();
         User user = null;
-        map.addAttribute("sliderList",sliderList);
+        map.addAttribute("sliderList", sliderList);
         // 通过cookie中的userId 查询U
         Cookie[] cookies = request.getCookies();//这样便可以获取一个cookie数组
-        for(Cookie cookie : cookies){
-           if(cookie.getName().equals("userId")){
-               int userId =  Integer.parseInt(cookie.getValue());
-               user = userdao.findUserById(userId);
-               session.setAttribute("user",user);
-           }
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("userId")) {
+                int userId = Integer.parseInt(cookie.getValue());
+                user = userdao.findUserById(userId);
+                session.setAttribute("user", user);
+            }
 
         }
 
-        if(user != null){
+        if (user != null) {
             map.addAttribute("user", user);
         }
 
         return "index";
     }
 
-    @RequestMapping(value = "/indexJson" ,produces ="application/json")
+    @RequestMapping(value = "/indexJson", produces = "application/json")
     public String showIndexJson(ModelMap map, HttpSession session, HttpServletRequest request) throws IOException {
         ArrayList<IndexSlider> sliderList = (ArrayList<IndexSlider>) productdao.getSliderInfo();
         User user = null;
-        map.addAttribute("sliderList",sliderList);
+        map.addAttribute("sliderList", sliderList);
         // 通过cookie中的userId 查询U
         Cookie[] cookies = request.getCookies();//这样便可以获取一个cookie数组
-        for(Cookie cookie : cookies){
-            if(cookie.getName().equals("user")){
-                String json =  URLDecoder.decode(cookie.getValue(),"UTF-8");
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("user")) {
+                String json = URLDecoder.decode(cookie.getValue(), "UTF-8");
                 ObjectMapper mapper = new ObjectMapper();
                 user = mapper.readValue(json, User.class);
                 System.out.println("cookie" + user);
             }
         }
 
-        session.setAttribute("user",user);
-        user = (User)session.getAttribute("user");
+        session.setAttribute("user", user);
+        user = (User) session.getAttribute("user");
         System.out.println(user);
 
-        if(user != null){
+        if (user != null) {
             map.addAttribute("user", user);
         }
 
@@ -110,34 +110,34 @@ public class PageViewController {
     }
 
 
-    @RequestMapping(value = "/getManCatagory",produces="application/json")
+    @RequestMapping(value = "/getManCatagory", produces = "application/json")
     public String showManCatagory(ModelMap map, HttpSession session) throws IOException {
         ArrayList<ProductList> manClotheList = (ArrayList<ProductList>) productdao.showList("男装");
-        map.addAttribute("ClotheList",manClotheList);
-        User user = (User)session.getAttribute("user");
-        if(user != null){
+        map.addAttribute("ClotheList", manClotheList);
+        User user = (User) session.getAttribute("user");
+        if (user != null) {
             map.addAttribute("user", user);
         }
         return "index";
     }
 
 
-    @RequestMapping(value = "/getWomanCatagory",produces="application/json")
+    @RequestMapping(value = "/getWomanCatagory", produces = "application/json")
     public String showWomanCatagory(ModelMap map, HttpSession session) throws IOException {
-        User user = (User)session.getAttribute("user");
-        if(user != null){
+        User user = (User) session.getAttribute("user");
+        if (user != null) {
             map.addAttribute("user", user);
         }
         ArrayList<ProductList> womanClotheList = (ArrayList<ProductList>) productdao.showList("女装");
-        map.addAttribute("ClotheList",womanClotheList);
+        map.addAttribute("ClotheList", womanClotheList);
         return "index";
     }
 
     /*分类页*/
     @RequestMapping(value = "/category")
-    public String showCategory(ModelMap map, HttpSession session,HttpServletRequest request) throws IOException {
-        User user = (User)session.getAttribute("user");
-        if(user != null){
+    public String showCategory(ModelMap map, HttpSession session, HttpServletRequest request) throws IOException {
+        User user = (User) session.getAttribute("user");
+        if (user != null) {
             map.addAttribute("user", user);
         }
         String catagory = request.getParameter("category");
@@ -149,26 +149,26 @@ public class PageViewController {
         // 返回各个子分类的产品
 
 
-        for (int i = 0; i < subcatagories.size(); i++){
+        for (int i = 0; i < subcatagories.size(); i++) {
 
-            shirtList = (ArrayList<ProductList>) productdao.showSubcatagoryList(catagory,subcatagories.get(i).getSubCatagory());
+            shirtList = (ArrayList<ProductList>) productdao.showSubcatagoryList(catagory, subcatagories.get(i).getSubCatagory());
             totalProductList.add(shirtList);
         }
 
 
         //
         System.out.println(totalProductList);
-        map.addAttribute("mainCatagory",catagory);
-        map.addAttribute("list",totalProductList);
-        map.addAttribute("subCatagory",subcatagories);
+        map.addAttribute("mainCatagory", catagory);
+        map.addAttribute("list", totalProductList);
+        map.addAttribute("subCatagory", subcatagories);
 
         return "showCategory";
     }
 
-    @RequestMapping(value = "/categoryJson",produces="application/json")
-    public String showCategoryJson(ModelMap map, HttpSession session,HttpServletRequest request) throws IOException {
-        User user = (User)session.getAttribute("user");
-        if(user != null){
+    @RequestMapping(value = "/categoryJson", produces = "application/json")
+    public String showCategoryJson(ModelMap map, HttpSession session, HttpServletRequest request) throws IOException {
+        User user = (User) session.getAttribute("user");
+        if (user != null) {
             map.addAttribute("user", user);
         }
         String catagory = request.getParameter("category");
@@ -180,27 +180,27 @@ public class PageViewController {
         // 返回各个子分类的产品
 
 
-        for (int i = 0; i < subcatagories.size(); i++){
+        for (int i = 0; i < subcatagories.size(); i++) {
 
-            shirtList = (ArrayList<ProductList>) productdao.showSubcatagoryList(catagory,subcatagories.get(i).getSubCatagory());
+            shirtList = (ArrayList<ProductList>) productdao.showSubcatagoryList(catagory, subcatagories.get(i).getSubCatagory());
             totalProductList.add(shirtList);
         }
 
 
         //
         System.out.println(totalProductList);
-        map.addAttribute("mainCatagory",catagory);
-        map.addAttribute("list",totalProductList);
-        map.addAttribute("subCatagory",subcatagories);
+        map.addAttribute("mainCatagory", catagory);
+        map.addAttribute("list", totalProductList);
+        map.addAttribute("subCatagory", subcatagories);
 
         return "showCategory";
     }
 
 
     @RequestMapping(value = "/product")
-    public String showProduct(ModelMap map, HttpSession session,HttpServletRequest request) throws IOException {
-        User user = (User)session.getAttribute("user");
-        if(user != null){
+    public String showProduct(ModelMap map, HttpSession session, HttpServletRequest request) throws IOException {
+        User user = (User) session.getAttribute("user");
+        if (user != null) {
             map.addAttribute("user", user);
         }
 
@@ -211,17 +211,17 @@ public class PageViewController {
         String[] arrColor = productDetail.getColors().split(";");
         String[] arrImg = productDetail.getImgs().split(";");
 
-        map.addAttribute("product",productDetail);
-        map.addAttribute("arrSize",arrSize);
-        map.addAttribute("arrColor",arrColor);
-        map.addAttribute("arrImg",arrImg);
+        map.addAttribute("product", productDetail);
+        map.addAttribute("arrSize", arrSize);
+        map.addAttribute("arrColor", arrColor);
+        map.addAttribute("arrImg", arrImg);
         return "product";
     }
 
     @RequestMapping(value = "/productJson", produces = "application/json")
-    public String showProductJson(ModelMap map, HttpSession session,HttpServletRequest request) throws IOException {
-        User user = (User)session.getAttribute("user");
-        if(user != null){
+    public String showProductJson(ModelMap map, HttpSession session, HttpServletRequest request) throws IOException {
+        User user = (User) session.getAttribute("user");
+        if (user != null) {
             map.addAttribute("user", user);
         }
 
@@ -232,17 +232,17 @@ public class PageViewController {
         String[] arrColor = productDetail.getColors().split(";");
         String[] arrImg = productDetail.getImgs().split(";");
 
-        map.addAttribute("product",productDetail);
-        map.addAttribute("arrSize",arrSize);
-        map.addAttribute("arrColor",arrColor);
-        map.addAttribute("arrImg",arrImg);
-        return "product";
+        map.addAttribute("product", productDetail);
+        map.addAttribute("arrSize", arrSize);
+        map.addAttribute("arrColor", arrColor);
+        map.addAttribute("arrImg", arrImg);
+        return "";
     }
 
     @RequestMapping(value = "/shoppingCart")
     public String showShoppingCart(ModelMap map, HttpSession session) throws IOException {
-        User user = (User)session.getAttribute("user");
-        if(user != null){
+        User user = (User) session.getAttribute("user");
+        if (user != null) {
             map.addAttribute("user", user);
         }
         return "shoppingCart";
@@ -250,21 +250,21 @@ public class PageViewController {
 
     @RequestMapping(value = "/login")
     public String showLogin(ModelMap map, HttpSession session) throws IOException {
-        User user = (User)session.getAttribute("user");
-        if(user != null){
+        User user = (User) session.getAttribute("user");
+        if (user != null) {
             map.addAttribute("user", user);
         }
         return "login";
     }
 
-    @RequestMapping(value = "/logout" , produces = "application/json")
+    @RequestMapping(value = "/logout", produces = "application/json")
     public String dealLogout(ModelMap map, HttpSession session, HttpServletRequest request, HttpServletResponse response) throws IOException {
 //        User user = (User) session.getAttribute("user");
 //        int id = user.getId();
         session.removeAttribute("user");
         Cookie[] cookies = request.getCookies();//这样便可以获取一个cookie数组
-        for(Cookie cookie : cookies){
-            if(cookie.getName().equals("user")){
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("user")) {
                 cookie.setMaxAge(0);
                 cookie.setDomain("/");
                 cookie.setPath("/");
@@ -279,8 +279,8 @@ public class PageViewController {
 
     @RequestMapping(value = "/register")
     public String showRegister(ModelMap map, HttpSession session) throws IOException {
-        User user = (User)session.getAttribute("user");
-        if(user != null){
+        User user = (User) session.getAttribute("user");
+        if (user != null) {
             map.addAttribute("user", user);
         }
         return "register";
@@ -288,8 +288,8 @@ public class PageViewController {
 
     @RequestMapping(value = "/settlement")
     public String showSettlement(ModelMap map, HttpSession session) throws IOException {
-        User user = (User)session.getAttribute("user");
-        if(user != null){
+        User user = (User) session.getAttribute("user");
+        if (user != null) {
             map.addAttribute("user", user);
         }
         return "settlement";
@@ -297,17 +297,30 @@ public class PageViewController {
 
     @RequestMapping(value = "/purchased")
     public String showPurchased(ModelMap map, HttpSession session) throws IOException {
-        User user = (User)session.getAttribute("user");
-        if(user != null){
+        User user = (User) session.getAttribute("user");
+        if (user != null) {
             map.addAttribute("user", user);
         }
 
         return "purchased";
     }
 
+    /* 展示新品 */
+    @RequestMapping(value = "/showNewProduct", produces = "application/json")
+    public String showNewProduct(ModelMap map, HttpSession session) throws IOException {
+        List<ProductList> arr = productdao.showNewList();
+        map.addAttribute("newList", arr);
+        return "";
+    }
 
-
-
+    /* 搜索模块 */
+    @RequestMapping(value = "/showSearchProduct", produces = "application/json")
+    public String showSearchProduct(ModelMap map, HttpServletRequest request){
+        String name = request.getParameter("name");
+        List<ProductList> arr = productdao.showSearchList(name);
+        map.addAttribute("searchList", arr);
+        return "";
+    }
 
 
 }
